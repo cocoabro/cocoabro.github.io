@@ -2,25 +2,40 @@
 /* Copyright 2017 robmcelvenny.com */
 
 .video-container {
-  position: relative;
+    position: relative;
 }
 
-video {
-    width: 100%; 
-    height: auto;    
+video.bgvid {
+    max-width: 100%;
+    width: auto;
 }
 
 .overlay-desc {
   background: rgba(0,0,0,0);
-  position: absolute;
-  top: 0; right: 0; bottom: 0; left: 0;
   display: flex;
+  position: absolute;
+  
+  top: 0; right: 0; bottom: 0; left: 0;
   align-items: center;
   justify-content: center;
 }
 
+@media (min-aspect-ratio: 4/3) {
+  video.bgvid {
+    height: 300%;
+    
+  }
+    
+}
+
+@media (max-aspect-ratio: 16/9) {
+  video.bgvid {
+    width: 100%;
+    
+  }
+}
+
 body {
-  font-family: 'Lora', 'Times New Roman', serif;
   font-size: 20px;
   color: #404040;
   
@@ -86,20 +101,20 @@ hr.small {
     border-bottom: 1px solid transparent;
   }
   .navbar-custom .navbar-brand {
-    color: white;
+    color: #FFF;
     padding: 20px;
   }
   .navbar-custom .navbar-brand:hover,
   .navbar-custom .navbar-brand:focus {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgb(255, 216, 0);
   }
   .navbar-custom .nav li a {
-    color: white;
+    color: #ffffff;
     padding: 20px;
   }
   .navbar-custom .nav li a:hover,
   .navbar-custom .nav li a:focus {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgb(255, 196, 0);
   }
 }
 @media only screen and (min-width: 1170px) {
@@ -127,18 +142,18 @@ hr.small {
     transition: transform 0.3s;
   }
   .navbar-custom.is-fixed .navbar-brand {
-    color: #404040;
+    color: #ffffff;
   }
   .navbar-custom.is-fixed .navbar-brand:hover,
   .navbar-custom.is-fixed .navbar-brand:focus {
-    color: #0085a1;
+    color: #ff8a01;
   }
   .navbar-custom.is-fixed .nav li a {
     color: #404040;
   }
   .navbar-custom.is-fixed .nav li a:hover,
   .navbar-custom.is-fixed .nav li a:focus {
-    color: #0085a1;
+    color: #ff8900;
   }
   .navbar-custom.is-visible {
     /* if the user changes the scrolling direction, we show the header */
@@ -149,15 +164,9 @@ hr.small {
     transform: translate3d(0, 100%, 0);
   }
 }
+
 .intro-header {
-  background: no-repeat center center;
-  background-color: #FFF;
-  background-attachment: scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-  margin-bottom: 50px;
+
 }
 .intro-header .site-heading,
 .intro-header .post-heading,
@@ -236,12 +245,12 @@ hr.small {
   color: #0085a1;
 }
 .post-preview > a > .post-title {
+  font-weight: 300;
   font-size: 30px;
-  margin-top: 30px;
-  margin-bottom: 10px;
+  
 }
 .post-preview > a > .post-subtitle {
-  margin: 0;
+  
   font-weight: 300;
   margin-bottom: 10px;
 }
@@ -267,7 +276,7 @@ hr.small {
 }
 .section-heading {
   font-size: 36px;
-  margin-top: 60px;
+  
   font-weight: 700;
 }
 .caption {
