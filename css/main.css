@@ -447,3 +447,29 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: rgba(56, 56, 56, 0.62);
 }
+
+.content {
+	padding: 18px;
+    margin-left: 215px;
+	color: #000000;
+}
+
+.sidebar {
+    float: left;
+    width: 200px;
+    color: #ffbdbd;
+}
+
+.sidebar > .sidebar__inner {
+    border-left: 5px solid #fd5;
+	padding: 10px;
+	
+	transform: translate(0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+div.sidebar__inner {
+    
+    
+    
+}

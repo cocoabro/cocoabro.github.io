@@ -67,3 +67,14 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="{{ "/js/clean-blog.min.js " | prepend: site.baseurl }}"></script>
+<script src="{{ "/js/sticky-sidebar.js " | prepend: site.baseurl }}"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".sidebar").stickySidebar({
+            topSpacing: 20,
+            bottomSpacing: 20,
+            containerSelector: '.main-content',
+            innerWrapperSelector: '.sidebar__inner'
+        });	
+    });
+</script>

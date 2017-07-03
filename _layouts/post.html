@@ -2,6 +2,17 @@
 layout: default
 ---
 
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".sidebar").stickySidebar({
+            topSpacing: 20,
+            bottomSpacing: 20,
+            containerSelector: '.main-content',
+            innerWrapperSelector: '.sidebar__inner'
+        });	
+    });
+</script>
+
 <!-- Post Header -->
 <header class="intro-header">
     <div class="video-container">
@@ -54,4 +65,3 @@ layout: default
     </div>
 </article>
 
-<hr>

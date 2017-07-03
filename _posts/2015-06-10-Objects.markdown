@@ -3,7 +3,7 @@ layout:     post
 title:      "Objects"
 subtitle:   "Object Instantiation, Constructors, and more"
 date:       2015-06-10
-author:     "Rob McElvenny"
+author:     "Rob"
 ---
 
 
@@ -51,10 +51,4 @@ All of these essentially mean the same thing, we create our object class, or str
 </p>
 
 
-# Overlay
-
-The ``` .overlay-desc ``` allows for your text to hover in a flex-box over your video background, this resizes along with the size of the viewport.
-
-<blockquote>Setting the .video.bgvid style to max-width is the trick to having your header make it full width.</blockquote>
-
-<p>Overall, I hope that this post helps and thanks for checking my blog!</p>
+# Lets find out more to write about!
