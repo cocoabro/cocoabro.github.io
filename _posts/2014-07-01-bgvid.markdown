@@ -1,0 +1,80 @@
+---
+layout:     post
+title:      "Full Width Video Header"
+date:       2014-07-01 12:00:00
+author:     "Rob"
+---
+
+# Setting up the header
+
+<p>This guide assumes that you have already setup your website with Jekyll. By setting up your Jekyll CSS Video header. The best way to get this accomplished by setting up your html file to have the following code.</p>
+
+## HTML: 
+
+``` html
+<header class="intro-header">
+    <div class="video-container">
+    <video autoplay loop muted class="bgvid" poster="video.jpg">
+        <source src="/video/videoHeader.mp4" type="video/mp4">
+    </video>
+       <div class="overlay-desc">
+           <div class="span12">
+                <div class="site-heading">
+                    <h1>Page Title</h1>
+                    site title
+                    <h2 class="subheading">Page Subheading</h2>
+                    <span class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</span>
+                </div>
+            </div>
+       </div>     
+ </div>
+</header>
+```
+
+## CSS: 
+
+``` css
+
+.video-container {
+    position: relative; /* Set position relative to the margin */
+}
+
+video.bgvid {
+
+    max-width: 100%; /* Set your max-width: 100%; for full-width header */
+    width: auto;
+}
+
+.overlay-desc {
+  background: rgba(0,0,0,0);
+  display: flex;
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-aspect-ratio: 4/3) {
+  video.bgvid {
+    height: 300%;
+    
+  }
+    
+}
+
+@media (max-aspect-ratio: 16/9) {
+  video.bgvid {
+    width: 100%;
+    
+  }
+}
+```
+
+
+# Overlay
+
+The ``` .overlay-desc ``` allows for your text to hover in a flex-box over your video background, this resizes along with the size of the viewport.
+
+<blockquote>Setting the .video.bgvid style to max-width is the trick to having your header make it full width.</blockquote>
+
+<p>Overall, I hope that this post helps and thanks for checking my blog!</p>
