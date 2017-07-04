@@ -1,5 +1,12 @@
 
 /* Copyright 2017 robmcelvenny.com */
+/****** 
+ DISQUS THREAD
+*/
+
+.disqus_thread { 
+    margin-top: 10px;
+}
 
 /***********************************
     Video Header
