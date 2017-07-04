@@ -80,9 +80,8 @@ In our UML figure below, you see how our instance variables, only result in empt
 | ``` fire(): String ```   |
 | ``` reduceShields(Integer) ``` |
 
-<p>
 The question is, what is the internal state of this object? We typically know that the class has defined _Instance Variables_. When we instantiate the object by using ``` Spaceship excelsior = new Spaceship(); ``` 
-</p>
+
 
 In OOP Languages, we create a constructor by creating a method in the class, with the same name as the class. For instance: 
 

@@ -62,7 +62,7 @@ These are known as the subclass, or child class. e.g. CheckingAccount might have
 
 # Super/Parent Class or Child/Subclass
 
-When you start creating things like Albums, Books, or Movies – this allows – a lot of these will have the same states and behaviours shared between objects. Here is where the Super class comes in, and you can create classes that hold the base _instance variables_. 
+When you start creating things like Albums, Books, or Movies – a lot of these objects will have the same states and behaviours shared between objects. Here is where the _super_ class comes in, and you can create classes that hold the base _instance variables_. 
 
 | Book: Super Class|
 | ----- |
@@ -79,3 +79,40 @@ When you start creating things like Albums, Books, or Movies – this allows –
 | ``` author ``` | 
 | ----- |
 | ``` book inherited ``` |
+
+# Abstract Class
+
+Abstract classes exist only for inheritance, the class is never instantiated but other classes that inherit from the super class DO actaully get instantiated. Abstract Classes are never instantiated – yet they are useful because they provide shared behaviours. 
+
+In languages like java you define an abstract class like this:
+
+Java: 
+``` java
+abstract class BankAccount { 
+[...]
+}
+```
+
+This is a much more common technique in languages like C#, Java, VB.NET, and C++. 
+
+# Defining and Using interfaces
+
+The term interface does not mean, user interface. An interface is created similar to a class, but with no functionality, or no actual code or behaviour. In java, interfaces are written in a specific way. 
+
+
+In Java you can begin creating your interface like this:
+
+``` java 
+interface Printable { 
+
+    // method signatures
+    void print(); 
+    void printToPDF(String filename);
+}
+```
+
+So you might ask, what is the point of this? You're not allowed to put functionality inside an interface. If we create a new class and we choose to implement an interface, we are essentially signing a contract. The main idea when signing a contract is that you aren't the only one who will sign. 
+
+Does the object support the particular interface? You can call things like the print method as I know that the object shares the same interface. 
+
+> Program to an interface, not to an implementation." – Design Patterns, 1995
