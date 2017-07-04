@@ -1,16 +1,13 @@
 .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
 pre {
-    background-color: #191717;
+    background-color: #273741;
     border: none;
-    border-radius: 0;
+    border-radius: 3;
 }
 
 .highlighter-rouge {
-    background-color: #191717;
-    color: #acff0e;
-    padding: 5px;
-    border-radius: 0;
+
 }
 .highlight .gh {
   color: #999999;
