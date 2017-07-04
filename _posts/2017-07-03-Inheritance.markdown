@@ -37,6 +37,19 @@ We know what makes sense and what doesn't. Inheritance allows us to borrow from 
 
 Inheritance is to allow us to identify shared attributes and behaviours between objects and avoiding reinventing the wheel. 
 
+<div class="advertisement">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- robmcelvenny.com -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9138756976382898"
+     data-ad-slot="5147608880"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>   
+        </div>
+
 # UML Representation of Inheritance
 
 To identify Inheritance in UML, it is normally represented by open ended arrows pointing to your main class as displayed in the screenshot below. 
