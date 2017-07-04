@@ -66,18 +66,16 @@ When you start creating things like Albums, Books, or Movies – this allows –
 
 | Book: Super Class|
 | ----- |
-| title |
-| price |
+| ``` title ``` |
+| ``` price ``` |
 | ----- |
-| purchase() |
-| download() |
+| ``` purchase() ``` |
+| ``` download() ``` |
      
  
  | Magazine: Child Class | 
  | ----- |
-| ``` title ``` |
-| ``` price  ```|
+| ``` book inherited ```
 | ``` author ``` | 
 | ----- |
-| ``` purchase() ```` |
-| ``` download() ``` |
+| ``` book inherited ``` |
