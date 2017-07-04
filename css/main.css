@@ -502,4 +502,6 @@ div.sidebar__inner {
 
 .advertisement { 
     margin-top: 15px;
+    width: 500px;
+    height: 250px;
 }
