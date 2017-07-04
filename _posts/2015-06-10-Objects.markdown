@@ -9,18 +9,33 @@ author:     "Rob"
 
 # Starting Off
 
-This is a general understanding of the current courses for Object Oriented Programming. This is by no way meant to be perfect, or 100% accurate. These notes are meant to be a memory store of what I am currently learning – perhaps in the future this will be further improved but the fastest way to get the content out here is by ignoring proper english structure. 
+This is a general understanding of the current courses for Object Oriented Programming. This is by no way meant to be perfect, or 100% accurate. These notes are meant to be a memory store of what I am currently learning – perhaps in the future this will be further improved but the fastest way to get the content out here is by ignoring proper english structure. It's no excuse but it will just have to do for now. 
+
+# Signs in Object Oriented Programming
+
+Ever wonder what the ``` - ``` or the ``` + ``` operators do in your code when being defined? Well heres a really simple and I'm putting it into laymens terms for you. Let's say that you have the following class in the UML Diagram below: 
+
+| _Class: Spaceship_ | 
+| -------|
+| <strong>_State_</strong> |
+| ``` +name: String```|
+| ``` -shieldStrength: Integer ``` |
+| <strong>_Behaviors_</strong>    |
+| ``` +fire(): String ```   |
+| ``` +reduceShields(Integer) ``` |
+
+A minus sign, refers to _Controlling visibility_ - a minus sign means it should be private to the class not directly accessible to other objects. (Name is private, but there is a get name operation which will be public and marked with a + sign, and it returns a string. formatProductDetails() a sign that will only be used internally, so this is made as a private class where as + sign are publicly available, (encapsulation).
+
 
 # Object Lifetime
 
-To create an object, you have a customer class, you want to make a customer object i.e. customer fred = new Customer();
-
-You can do this in several different programming languages.
+The important thing to understand about an Object is the idea of Instantiation, Instantiation allows us to create an Instance of an Object in memory. Most OOP Languages use the word new to Instantiate an instance of the object. 
 
 Java: 
 ``` java
 Java Customer fred = new Customer();
 ```
+
 C#:
 ``` csharp
 C# Customer fred = new Customer();
@@ -44,11 +59,187 @@ Objective-C Customer *fred = [[Customer [[alloc] init];
 
 All of these essentially mean the same thing, we create our object class, or struct and from there we instantiate that object by performing the above syntax in your desired language. 
 
+The usual way to take part of instantiation is through Constructors. 
+
 # Constructors
 
+A constructor is an OOP Concept, a special method exists, to construct the object.
+
+In our UML figure below, you see how our instance variables, only result in empty 
+
+| _Class: Spaceship_ | 
+| -------|
+| <strong>_State_</strong> |
+| ``` name: String```|
+| ``` shieldStrength: Integer ``` |
+| <strong>_Behaviors_</strong>    |
+| ``` fire(): String ```   |
+| ``` reduceShields(Integer) ``` |
+
 <p>
-    
+The question is, what is the internal state of this object? We typically know that the class has defined _Instance Variables_. When we instantiate the object by using ``` Spaceship excelsior = new Spaceship(); ``` 
 </p>
 
+In OOP Languages, we create a constructor by creating a method in the class, with the same name as the class. For instance: 
 
-# Lets find out more to write about!
+``` java
+public class Spaceship {
+
+    //instance variables
+    public String name;
+    private int shieldStrength;
+    
+    //constructor method
+    public Spaceship() { // method with the same name as the Class
+        name = "Unnamed ship";
+        shieldStrength = 100;
+    }
+
+    // other methods ommitted
+    [...]
+}
+```
+
+The above code shows that the object can be instantiated as an Object with values through the constructor method. This is a basic constructor that takes no arguments. If you see a method with the same name as the class, this is known as a _Constructor_
+
+Most languages allow us to create multiple constructors, this is known as _Overloading_ or _Constructor methods_
+
+You can create a second _Method_ with the same exact name, this would be known as the _Overloaded Constructor_. Here is what that code would look like, added to the above code. 
+
+```java
+
+public Spaceship(String n) {
+    name = n;
+    shieldStrength = 200;
+}
+
+```
+
+When we instantiate the object, we have two ways to do it. We can use the word ``` new Spaceship("Excelsior 2"); ``` Or we can traditionally just instantiate the object. I wanted to just give an example of what the UML would look like  after instantiating an object like this. 
+
+UML for the object with an _Constructor_ and _Overloaded Constructor_
+
+| _Class: Spaceship_ |
+| -------|
+| <strong>_State_ </strong>|
+| ``` name: String```|
+| ``` shieldStrength: Integer ``` | 
+| <strong>_Behaviors_</strong>    |
+| ```Spaceship() ``` |
+| ``` Spaceship(String) ```|
+| ``` fire(): String ```   |
+| ``` reduceShields(Integer) ``` |
+
+# Destructor
+
+When an object is no longer needed, in some languages – it is known as a finalizer, a place to put code that is called when the object is destroyed. 
+
+Typically used when an Object is holding a _resource_ and you just want to make sure the object has released any connection it has had before it was destroyed. 
+
+# Static, Shared Members, or Class Variables
+
+Let's say that we have a class as such in the UML Diagram below: 
+
+| SavingsAccount |
+| -------|
+| accountNumber       |
+| balance|
+| -------|
+| -------|
+| deposit() |
+| withdraw() |
+
+We can instantiate multiple objects based on this class. Then we realize that we need something like an Interest rate, so now we can add an Instance variable. 
+
+This allows us to avoid having thousands of copies of the same variable. In procedural programming, it may be tempting to instead store the value in a Global variable that is accessible throughout the program, in Object Oriented Programming we go about it differently. 
+
+Class level variables, or _Static_ variables. Here are a few different examples in code of how this is accomplished: 
+
+Java: 
+
+```java
+public class SavingsAccount { 
+    //instance variables
+    public String accountnumber;
+    private Money balance;
+    
+    // static variables
+    public static float interestRate; 
+    
+    ...
+}
+
+```
+VB.net: 
+
+```vb
+Public Shared interestRate as Float
+```
+Ruby: 
+
+```ruby
+@@interestRate
+```
+
+These are all referring to the same concept, static doesn't mean constant or fixed, but static as opposed to dynamic.  We use only one of these variables, so we use _Static_ to keep this variable accessible as a "Shared Member", or class level variable.
+
+# Accessing Objects
+
+To access normal instance level variables, we use the name of the object to get to them. Lets say we have this object 
+
+| SavingsAccount  |
+| --- |
+| accountNumber       |
+| balance|
+| -------|
+| -------|
+| deposit() |
+| withdraw() |
+
+A quick example of instantiating a new object 'joeAcct' and accessing the instance variables contained. 
+
+```java
+Customer joeAcct = new SavingsAccount(); 
+joeAcct.accountNumber 
+joeAcct.balance 
+```
+
+# Accessing Static Variables
+
+You can use the Class name to access static variables set within the class, without the need to instantiate the object. 
+
+```java
+SavingsAccount.interestRate = 0.85;
+```
+
+This is the only way that you can get to these variables. Any variable defined as static can be used even before object instantiation. You can also create static methods, which means it is always accessible, for instance, a static method can only access static variables, you can't write code to access instance level variables, but you can create static methods to get and set the interest rate.
+
+# UML For Static Members
+
+Static members are represented in UML with an underline. 
+
+| SavingsAccount  |
+| --- |
+| accountNumber       |
+| balance|
+| interestRate |
+| -------|
+| getInterest() |
+| -------|
+| setInterest() |
+| deposit() |
+| withdraw() |
+
+# Quiz questions and answers
+
+### Q: What do the plus sign and minus sign represent in a UML class diagram?
+### A: Minus means private to the class and plus means public to the other classes.
+
+
+
+# Finally
+
+I hope that this ultimately gives you a better picture of how Objects are used, and how understanding these concepts are extremely important to becoming a full fledged coder! 
+
+See you next time! 
+
