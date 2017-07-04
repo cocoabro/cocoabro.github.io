@@ -96,3 +96,8 @@ Java:
 This is a much more common technique in languages like C#, Java, VB.NET, and C++. 
 
 The "IS A" relationship is used to determine if there is inheritance between two classes. 
+
+
+# Finally
+
+I hope that this tutorial has given you a better understanding of Inheritance, and it's different intracacies included. :thumbsup:
