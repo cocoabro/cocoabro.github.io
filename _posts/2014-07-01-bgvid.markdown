@@ -77,4 +77,9 @@ The ``` .overlay-desc ``` allows for your text to hover in a flex-box over your 
 
 <blockquote>Setting the .video.bgvid style to max-width is the trick to having your header make it full width.</blockquote>
 
+# Safari Fix
+
+I'm still working on a fix for this, it's really strange functionality, and I know that there is a very simple solution for this. 
+
+
 <p>Overall, I hope that this post helps and thanks for checking my blog!</p>

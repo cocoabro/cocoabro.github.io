@@ -1,6 +1,9 @@
 
 /* Copyright 2017 robmcelvenny.com */
 
+/***********************************
+    Video Header
+***********************************/
 .video-container {
     position: relative;
 }
@@ -33,6 +36,10 @@ video.bgvid {
     
   }
 }
+
+/***********************************
+    Main style
+***********************************/
 
 body {
   font-size: 20px;
@@ -87,12 +94,17 @@ blockquote:before {
 blockquote p {
   display: inline;
 }
+
 hr.small {
   max-width: 100px;
   margin: 15px auto;
   border-width: 4px;
   border-color: white;
 }
+
+/***********************************
+    Navbar styles
+***********************************/
 .navbar-custom {
   background: white;
   position: absolute;
@@ -181,6 +193,10 @@ hr.small {
   }
 }
 
+/***********************************
+    Custom header style
+***********************************/
+
 .intro-header {
 
 }
@@ -252,6 +268,10 @@ hr.small {
     font-size: 30px;
   }
 }
+
+/***********************************
+        Post configurations
+***********************************/
 .post-preview > a {
   color: #404040;
 }
@@ -290,6 +310,7 @@ hr.small {
     font-size: 36px;
   }
 }
+
 .section-heading {
   font-size: 36px;
   
@@ -472,4 +493,13 @@ div.sidebar__inner {
     
     
     
+}
+
+
+/***********************************
+            Advertisement
+***********************************/
+
+.advertisement { 
+    margin-top: 15px;
 }

@@ -42,3 +42,4 @@ Inheritance is to allow us to identify shared attributes and behaviours between 
 To identify Inheritance in UML, it is normally represented by open ended arrows pointing to your main class as displayed in the screenshot below. 
 
 ![UML Inheritance](/img/umlinheritance.png)
+
