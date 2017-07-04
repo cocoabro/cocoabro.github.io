@@ -236,7 +236,7 @@ hr.small {
   font-weight: 600;
 }
 .intro-header .post-heading .meta {
-  font-family: 'Lora', 'Times New Roman', serif;
+  font-family: 'Open Sans', 'Times New Roman', serif;
   font-style: italic;
   font-weight: 300;
   font-size: 20px;
@@ -258,7 +258,7 @@ hr.small {
 .post-preview > a:hover,
 .post-preview > a:focus {
   text-decoration: none;
-  color: #0085a1;
+  color: #fd500e;
 }
 .post-preview > a > .post-title {
   font-weight: 300;

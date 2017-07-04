@@ -232,26 +232,27 @@ Static members are represented in UML with an underline.
 
 # Quiz questions and answers
 
-#### Q: What do the plus sign and minus sign represent in a UML class diagram?
-#### A: Minus means private to the class and plus means public to the other classes.
 
-#### Q: A(n) _____ can make sure that any variables belonging to an object are immediately set to the right values as soon as the object is created.
-#### A: constructor
-
-#### Q: a method or a variable that is shared across all objects in a class is called which of the following?
-#### A: All of these answers: static, shared, or class-level
-
-#### Q: Keeping an attribute private but creating a public operation to return the value of the attribute is called _____.
-#### A: controlling visibility
-
-#### Q: When a new object is created, what special method is called to set its initial attribute values?
-#### A: constructor
-
-#### Q: A destructor is called when disposing of an object that is no longer necessary.
-#### A: TRUE
-
-#### Q: A _____ variable is shared across all objects of a class.
-#### A: static
+Q: What do the plus sign and minus sign represent in a UML class diagram?
+A: Minus means private to the class and plus means public to the other classes.
+***
+Q: A(n) _____ can make sure that any variables belonging to an object are immediately set to the right values as soon as the object is created.
+A: constructor
+***
+Q: a method or a variable that is shared across all objects in a class is called which of the following?
+A: All of these answers: static, shared, or class-level
+***
+Q: Keeping an attribute private but creating a public operation to return the value of the attribute is called _____.
+A: controlling visibility
+***
+Q: When a new object is created, what special method is called to set its initial attribute values?
+A: constructor
+***
+Q: A destructor is called when disposing of an object that is no longer necessary.
+A: TRUE
+***
+Q: A _____ variable is shared across all objects of a class.
+A: static
 
 # Finally
 
