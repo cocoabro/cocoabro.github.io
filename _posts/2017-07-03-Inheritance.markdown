@@ -43,3 +43,28 @@ To identify Inheritance in UML, it is normally represented by open ended arrows 
 
 ![UML Inheritance](/img/umlinheritance.png)
 
+You can see here how the super/parent class, is thoughtfully designed. These other objects are inheriting from the BankAccount class, which gives them everything from the main BankAccount class, but also allows to add additional _instance variables_ to the mix. 
+
+These are known as the subclass, or child class. e.g. CheckingAccount might have a very small interest rate, where as SavingsAccount and InvestmentAccount have higher level interst rates set. 
+
+# Super/Parent Class or Child/Subclass
+
+When you start creating things like Albums, Books, or Movies – this allows – a lot of these will have the same states and behaviours shared between objects. Here is where the Super class comes in, and you can create classes that hold the base _instance variables_. 
+
+| Book: Super Class|
+| ----- |
+| title |
+| price |
+| ----- |
+| purchase() |
+| download() |
+     
+ 
+ | Magazine: Child Class | 
+ | ----- |
+| ``` title ``` |
+| ``` price  ```|
+| ``` author ``` | 
+| ----- |
+| ``` purchase() ```` |
+| ``` download() ``` |

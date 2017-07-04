@@ -13,7 +13,9 @@ This is a general understanding of the current courses for Object Oriented Progr
 
 # Signs in Object Oriented Programming
 
-Ever wonder what the ``` - ``` or the ``` + ``` operators do in your code when being defined? Well heres a really simple and I'm putting it into laymens terms for you. Let's say that you have the following class in the UML Diagram below: 
+Ever wonder what the ``` - ``` or the ``` + ``` operators do in your code when being defined? Well heres a really simple explanation and I'm going to try to put it into laymens terms for you. 
+
+Let's say that you have the following class in the UML Diagram below: 
 
 | _Class: Spaceship_ | 
 | -------|
@@ -24,7 +26,9 @@ Ever wonder what the ``` - ``` or the ``` + ``` operators do in your code when b
 | ``` +fire(): String ```   |
 | ``` +reduceShields(Integer) ``` |
 
-A minus sign, refers to _Controlling visibility_ - a minus sign means it should be private to the class not directly accessible to other objects. (Name is private, but there is a get name operation which will be public and marked with a + sign, and it returns a string. formatProductDetails() a sign that will only be used internally, so this is made as a private class where as + sign are publicly available, (encapsulation).
+A minus sign, refers to _controlling visibility_ - a minus sign means it should be private to the class not directly accessible to other objects. (Name is private, but there is a get name operation which will be public and marked with a + sign) it returning a string.
+
+``` -formatProductDetails() ``` a sign that will only be used internally, so this is made as a private class where as + sign are publicly available, (encapsulation).
 
 
 # Object Lifetime
@@ -52,7 +56,7 @@ C++:
 ``` c++
 Customer *fred = new Customer();
 ```
-ObjC:
+Obj-C:
 ``` objc
 Objective-C Customer *fred = [[Customer [[alloc] init];
 ```
@@ -100,9 +104,9 @@ public class Spaceship {
 }
 ```
 
-The above code shows that the object can be instantiated as an Object with values through the constructor method. This is a basic constructor that takes no arguments. If you see a method with the same name as the class, this is known as a _Constructor_
+The above code shows that the object can be instantiated as an object with values through the constructor method. This is a basic constructor that takes no arguments. If you see a method with the same name as the class, this is known as a _constructor_.
 
-Most languages allow us to create multiple constructors, this is known as _Overloading_ or _Constructor methods_
+Most languages allow us to create multiple constructors, this is known as _overloading_ our _constructors_. 
 
 You can create a second _Method_ with the same exact name, this would be known as the _Overloaded Constructor_. Here is what that code would look like, added to the above code. 
 
@@ -138,22 +142,25 @@ Typically used when an Object is holding a _resource_ and you just want to make 
 
 # Static, Shared Members, or Class Variables
 
-Let's say that we have a class as such in the UML Diagram below: 
+> Let's say that we have a class as such in the UML Diagram below: 
 
 | SavingsAccount |
 | -------|
-| accountNumber       |
-| balance|
+| ```accountNumber ``` |
+| ``` balance ```|
 | -------|
 | -------|
-| deposit() |
-| withdraw() |
+| ``` deposit() ``` |
+| ``` withdraw() ``` |
 
 We can instantiate multiple objects based on this class. Then we realize that we need something like an Interest rate, so now we can add an Instance variable. 
 
 This allows us to avoid having thousands of copies of the same variable. In procedural programming, it may be tempting to instead store the value in a Global variable that is accessible throughout the program, in Object Oriented Programming we go about it differently. 
 
-Class level variables, or _Static_ variables. Here are a few different examples in code of how this is accomplished: 
+Class level variables, or _Static_ variables. 
+
+
+Some different examples in code of how this is accomplished: 
 
 Java: 
 
@@ -189,12 +196,12 @@ To access normal instance level variables, we use the name of the object to get 
 
 | SavingsAccount  |
 | --- |
-| accountNumber       |
-| balance|
+| ``` accountNumber ```|
+| ``` balance ```|
 | -------|
 | -------|
-| deposit() |
-| withdraw() |
+| ``` deposit() ``` |
+| ``` withdraw() ``` |
 
 A quick example of instantiating a new object 'joeAcct' and accessing the instance variables contained. 
 
@@ -220,41 +227,21 @@ Static members are represented in UML with an underline.
 
 | SavingsAccount  |
 | --- |
-| accountNumber       |
-| balance|
-| interestRate |
+| ``` accountNumber ```|
+| ``` balance ```|
+| ``` interestRate ``` |
 | -------|
-| getInterest() |
+| ``` getInterest(String n) ``` |
 | -------|
-| setInterest() |
-| deposit() |
-| withdraw() |
-
-# Quiz questions and answers
-
-
-Q: What do the plus sign and minus sign represent in a UML class diagram?
-A: Minus means private to the class and plus means public to the other classes.
-***
-Q: A(n) _____ can make sure that any variables belonging to an object are immediately set to the right values as soon as the object is created.
-A: constructor
-***
-Q: a method or a variable that is shared across all objects in a class is called which of the following?
-A: All of these answers: static, shared, or class-level
-***
-Q: Keeping an attribute private but creating a public operation to return the value of the attribute is called _____.
-A: controlling visibility
-***
-Q: When a new object is created, what special method is called to set its initial attribute values?
-A: constructor
-***
-Q: A destructor is called when disposing of an object that is no longer necessary.
-A: TRUE
-***
-Q: A _____ variable is shared across all objects of a class.
-A: static
+| ``` setInterest() ``` |
+| ``` deposit() ```|
+| ``` withdraw() ```|
 
 # Finally
 
-I've learned a lot about Objects, instantiation, states, how encapsulation is used so far, i.e. using signs and controlling visibility. How to use constructors to set values when an object is instantiated, and how to also create instance methods that can be called, as well as how static variables are used to access variables and methods at the class level. 
+So far – I've learned a lot, from objects, instantiation, and state. To how encapsulation is used, e.g. using signs and controlling visibility. 
+
+How to use constructors to set values when an object is instantiated, and how to also create instance methods that can be called after and even before object instantiation. 
+
+I also enjoyed learning about static variables, and how they are used to access variables and methods at the class level. 
 

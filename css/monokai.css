@@ -3,6 +3,14 @@
 pre {
     background-color: #191717;
     border: none;
+    border-radius: 0;
+}
+
+.highlighter-rouge {
+    background-color: #191717;
+    color: #acff0e;
+    padding: 5px;
+    border-radius: 0;
 }
 .highlight .gh {
   color: #999999;
