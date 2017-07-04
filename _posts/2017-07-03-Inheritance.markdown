@@ -54,7 +54,7 @@ Inheritance is to allow us to identify shared attributes and behaviours between 
 
 To identify Inheritance in UML, it is normally represented by open ended arrows pointing to your main class as displayed in the screenshot below. 
 
-![UML Inheritance](/img/umlinheritance.png)
+![UML Inheritance](/img/umlInheritance.png)
 
 You can see here how the super/parent class, is thoughtfully designed. These other objects are inheriting from the BankAccount class, which gives them everything from the main BankAccount class, but also allows to add additional _instance variables_ to the mix. 
 
