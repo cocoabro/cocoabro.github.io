@@ -20,6 +20,7 @@ video.bgvid {
     max-width: 100%;
     width: auto;
     background: cover;
+    object-fit:cover;
 }
 
 .overlay-desc {
