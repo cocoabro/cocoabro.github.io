@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Design Patterns"
-subtitle:   "Learning Design Patternsm"
+subtitle:   "Learning Design Patterns"
 date:       2017-07-05 
 author:     "Rob"
 ---
@@ -114,7 +114,9 @@ This object, we want to be able to change and then undo any changes to. It is no
 
 # The CareTaker
 
-When and why asks the Originator to save it's state, and passes receives the Memento object. The Caretaker doesn't know anything about the state of the Memento, it is simply there to save state, and undo any changes by handing the previous memento back to the originator. The caretaker can also ask for multiple levels of mementos, or basically multiple levels of undo. 
+When and why:
+
+asks the Originator to save it's state, and passes receives the Memento object. The Caretaker doesn't know anything about the state of the Memento, it is simply there to save state, and undo any changes by handing the previous memento back to the originator. The caretaker can also ask for multiple levels of mementos, or basically multiple levels of undo. 
 
 Encapsulation is not being broken during this time. 
 
@@ -125,5 +127,3 @@ The _Memento_ object, is what gets created when the _CareTaker_ class requests t
 # There you have it
 
 I did not want to go too deep into details because there are many Design Patterns that exist and can be applied within your applications. I am mostly interested in iOS, and I did find additional resources for applying Design Patterns in your iOS projects, you can check out <a href="https://www.raywenderlich.com/46988/ios-design-patterns">iOS Design Patterns</a> on Raywenderlich if you're interested. 
-
-Later on, I'll have more posts that go into more detail about this. 

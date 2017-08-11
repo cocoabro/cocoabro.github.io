@@ -139,20 +139,20 @@ hr.small {
     border-bottom: 1px solid transparent;
   }
   .navbar-custom .navbar-brand {
-    color: #FFF;
+    color: #fff;
     padding: 20px;
   }
   .navbar-custom .navbar-brand:hover,
   .navbar-custom .navbar-brand:focus {
-    color: #fd500e;
+    color: #c1c1c1;
   }
   .navbar-custom .nav li a {
-    color: #ffffff;
+    color: #fff;
     padding: 20px;
   }
   .navbar-custom .nav li a:hover,
   .navbar-custom .nav li a:focus {
-    color: #fd500e;
+    color: #c4c4c4;
   }
 }
 @media only screen and (min-width: 1170px) {
@@ -180,18 +180,18 @@ hr.small {
     transition: transform 0.3s;
   }
   .navbar-custom.is-fixed .navbar-brand {
-    color: #ffffff;
+    color: #212121;
   }
   .navbar-custom.is-fixed .navbar-brand:hover,
   .navbar-custom.is-fixed .navbar-brand:focus {
-    color: #ff8a01;
+    color: #cecece;
   }
   .navbar-custom.is-fixed .nav li a {
     color: #404040;
   }
   .navbar-custom.is-fixed .nav li a:hover,
   .navbar-custom.is-fixed .nav li a:focus {
-    color: #ff8900;
+    color: #cecece;
   }
   .navbar-custom.is-visible {
     /* if the user changes the scrolling direction, we show the header */
@@ -418,8 +418,8 @@ form .row:first-child .floating-label-form-group {
 }
 .btn-default:hover,
 .btn-default:focus {
-  background-color: #0085a1;
-  border: 1px solid #0085a1;
+  background-color: #6a6a6a;
+  border: none;
   color: white;
 }
 .pager {
@@ -434,7 +434,7 @@ form .row:first-child .floating-label-form-group {
   letter-spacing: 1px;
   padding: 10px 5px;
   background-color: white;
-  border: 2px solid #fd500e;
+  border: 2px solid #1f1f1f;
   border-radius: 1;
 }
 @media only screen and (min-width: 768px) {
@@ -447,7 +447,7 @@ form .row:first-child .floating-label-form-group {
 .pager li > a:hover,
 .pager li > a:focus {
   color: white;
-  background-color: #fd500e;
+  background-color: #222222;
 }
 .pager .disabled > a,
 .pager .disabled > a:hover,
