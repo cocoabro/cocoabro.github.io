@@ -1,0 +1,71 @@
+---
+layout:     post
+title:      "Swift"
+subtitle:   "Networking with Swift"
+date:       2017-07-30
+author:     "Rob"
+---
+
+# Getting Started
+
+I signed back up with udacity.com to earn my iOS Nanodegree. It's going to prove a bit challenging, but I'm almost halfway through it. The current lesson that I'm working on is the Networking section of the Nanodegree. Here there are several videos as well as a final project in the course. Network requests are the third lesson in the iOS Nanodegree program. 
+
+I'm really excited to get this completed, and I think that my notes here will help both you and I in the end. There are some really important topics covered in this section of the nanodegree; working with URLSession, URLSessionWithDataTask, JSONSerialization (Converting and parsing JSON data), and more. 
+
+In this guide, we will go through the various aspects of SleepingInTheLibrary. Yes you want to be about speed, but you also do want to remember the concepts. You will learn the following: 
+
+- How to use Flickrs web service to make an API call for data.
+- How to manipulate the data within.
+- Swift dictionaries and how they work. 
+- Storing data in Key-Value Pairs. 
+- Error handling in case something goes wrong. 
+
+By the time you're done this blog post, you should have a pretty good understanding of API calls, and some good notion of how and why you would use a dictionary. 
+
+# Error Handling
+
+Swift can handle errors very well. We use error handling to tell our programs what to do if there were an error encountered. Say you want to keep retrying a connection if there was an error found. 
+
+You can perform Error handling as such: 
+
+``` swift
+
+do { 
+
+} catch { 
+displayError("Could not grab \(data)")
+}
+
+```
+
+# Glossary
+
+Ultimately, I use this website as a reference and I like to hold on to important vocabulary. I believe that vocabulary is just as important as software development itself. 
+
+Here are some key concepts to study and understand: 
+
+- **Web service** — a software application that enables the communication of data over a network.
+
+- **API (Application Program Interface)** — a set of methods that are specialized for a purpose; many web services are also referred to as APIs or “network” APIs.
+
+- **JSON (JavaScript Object Notation)** — a data format used frequently to communicate data over a network.
+
+- **Parameters (in a URL)** — a value specified in a URL usually in the format of “parameter=value”.
+
+- **ASCII (American Standard Code for Information Interchange)** — a simple way of representing characters in a computer.
+
+- **URL escaping/encoding** — a mechanism for ensuring that all characters in a URL are valid ASCII characters.
+
+- **API key** — a value distributed by an API provider that uniquely identifies applications using it service.
+
+- **URLRequest** — represents a configurable URL that can specify properties such as the HTTP method type.
+
+- **Serialization** — converting an object into a stream of bytes; this is often done to send an object over the network so that it can be recreated somewhere else.
+
+- **Deserialization** — converting a stream of bytes into an object; the opposite of serialization.
+
+- **JSONSerialization** — a class used to convert bytes of JSON data into objects or vice versa.
+
+- **NSDictionary** — Objective-C’s version of a Dictionary; sometimes we must use it in Swift when working with Objective-C APIs.
+
+- NSArray — Objective-C’s version of an Array; sometimes we must use it in Swift when working with Objective-C APIs.

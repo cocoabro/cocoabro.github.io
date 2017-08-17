@@ -1,0 +1,8 @@
+---
+layout:     post
+title:      "OOP Principles"
+subtitle:   "Signing a contract"
+date:       2017-07-04
+author:     "Rob"
+---
+
