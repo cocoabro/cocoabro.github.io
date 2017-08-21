@@ -1,3 +1,11 @@
+---
+layout:     post
+title:      "Python Logging"
+subtitle:   "Import logging configuration for libraries and application dev"
+date:       2017-08-21 04:50:35 PM
+author:     "Rob"
+---
+
 # Getting Started
 
 Here is a quick snippet of setting up logging, which is a very useful thing to have when writing Libraries. 
