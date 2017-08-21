@@ -28,8 +28,7 @@ let urlString = URL("http://sandipbgt.com/theastrologer/api/horoscope/leo/today"
 let url = URL(string: urlString)! 
 let request = URLRequest(url: url) 
 
-let task = session.dataTask(with: request) { (data, response, error) in 
-    
+let task = session.dataTask(with: request) { (data, response, error) in     
     func displayError(_ error: String) {
         print(error)
         print("URL at time of error: \(url)")
@@ -79,7 +78,6 @@ print(components.url!)
 Right now, you're looking at a high level overview of the components structure and how iOS handles URL (or more specifically URIs). However, there is a much better way to understand this with a simple diagram. 
 
 ``` javascript
-
    The following are two example URIs and their component parts:
 
          foo://example.com:8042/over/there?name=ferret#nose
@@ -99,16 +97,17 @@ Basic terminology of terms:
 URN — Unnform Resource Name, the Scheme used, which can be `wss://`, `http://`, `ftp://` etc.
 Query - The query can be identified with the ? symbol. 
 
-# Parsing the JSON
+# Deserializing JSON
 
-# Manipulating the JSON
+# Parsing JSON
 
-# Passing the Data
+# Manipulating JSON
 
-# Updating the UI 
+# Passing Data
+
+# Updating UI 
 
 ``` swift
-
 if let imageData = try? Data(contentsOf: imageURL!) {
     performUIUpdatesOnMain {
         self.setUIEnabled(true)
@@ -123,4 +122,18 @@ if let imageData = try? Data(contentsOf: imageURL!) {
 
 ```
 
+When handling these kinds of operations in your application, it is extremely important that you understand the concept of multi-threaded programming, or in the case of Swift, Asynchronus tasks and Grand Central Dispatch. 
+
+## Main thread
+
+## Background Thread
+
+
+
+``` 
+
+
 Why do we want to do this? Well, the simplest explanation is that when you're pulling data from the web, your View will not automatically update on the main thread without first calling this method. Later on, we'll talk more about how asynchronous tasks are handled, and how GCD and updating views on the main thread will make your app work very smoothly. 
+
+
+
