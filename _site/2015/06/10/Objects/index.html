@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Live Journal, portfolio, and works from Rob McElvenny">
+
+    <title>Objects - @rbo</title>
+
+    <link rel="canonical" href="http://localhost:4000/2015/06/10/Objects/">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/monokai.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="@rbo" />
+    <!-- Begin Jekyll SEO tag v2.2.3 -->
+<title>Objects | @rbo</title>
+<meta property="og:title" content="Objects" />
+<meta name="author" content="Rob" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Starting Off" />
+<meta property="og:description" content="Starting Off" />
+<link rel="canonical" href="http://localhost:4000/2015/06/10/Objects/" />
+<meta property="og:url" content="http://localhost:4000/2015/06/10/Objects/" />
+<meta property="og:site_name" content="@rbo" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-06-10T00:00:00-07:00" />
+<script type="application/ld+json">
+{"@context":"http://schema.org","@type":"BlogPosting","headline":"Objects","author":{"@type":"Person","name":"Rob"},"datePublished":"2015-06-10T00:00:00-07:00","dateModified":"2015-06-10T00:00:00-07:00","description":"Starting Off","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2015/06/10/Objects/"},"url":"http://localhost:4000/2015/06/10/Objects/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">@rbo</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                
+				
+                <li>
+                    <a href="/about/">About</a>
+                </li>
+				
+                
+				
+                <li>
+                    <a href="/contact/">Contact</a>
+                </li>
+				
+                
+				
+                <li>
+                    <a href="/portfolio/">Portfolio</a>
+                </li>
+				
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-9138756976382898",
+    enable_page_level_ads: true
+  });
+</script>
+
+<!-- Post Header -->
+<header class="intro-header">
+    <div class="video-container">
+    <video autoplay loop muted class="bgvid" poster="/img/video.jpg">
+        <source src="/video/videoHeader.mp4" type="video/mp4">
+    </video>
+       <div class="overlay-desc">
+           <div class="span12">
+                <div class="site-heading">
+                    
+                    <h1>Objects</h1>
+                    
+                    
+                    <h2 class="subheading">Object Instantiation, Constructors, and more</h2>
+                    
+                    <span class="meta">Posted by Rob on June 10, 2015</span>
+                </div>
+            </div>
+       </div>     
+ </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<h1 id="starting-off">Starting Off</h1>
+
+<p>This is a general understanding of the current courses for Object Oriented Programming. This is by no way meant to be perfect, or 100% accurate. These notes are meant to be a memory store of what I am currently learning – perhaps in the future this will be further improved but the fastest way to get the content out here is by ignoring proper english structure. It’s no excuse but it will just have to do for now.</p>
+
+<h1 id="signs-in-object-oriented-programming">Signs in Object Oriented Programming</h1>
+
+<p>Ever wonder what the <code class="highlighter-rouge">-</code> or the <code class="highlighter-rouge">+</code> operators do in your code when being defined? Well heres a really simple explanation and I’m going to try to put it into laymens terms for you.</p>
+
+<p>Let’s say that you have the following class in the UML Diagram below:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><em>Class: Spaceship</em></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong><em>State</em></strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">+name: String</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">-shieldStrength: Integer</code></td>
+    </tr>
+    <tr>
+      <td><strong><em>Behaviors</em></strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">+fire(): String</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">+reduceShields(Integer)</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>A minus sign, refers to <em>controlling visibility</em> - a minus sign means it should be private to the class not directly accessible to other objects. (Name is private, but there is a get name operation which will be public and marked with a + sign) it returning a string.</p>
+
+<p><code class="highlighter-rouge">-formatProductDetails()</code> a sign that will only be used internally, so this is made as a private class where as + sign are publicly available, (encapsulation).</p>
+
+<h1 id="object-lifetime">Object Lifetime</h1>
+
+<p>The important thing to understand about an Object is the idea of Instantiation, Instantiation allows us to create an Instance of an Object in memory. Most OOP Languages use the word new to Instantiate an instance of the object.</p>
+
+<p>Java:</p>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">Java</span> <span class="n">Customer</span> <span class="n">fred</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Customer</span><span class="o">();</span>
+</code></pre>
+</div>
+
+<p>C#:</p>
+<div class="language-csharp highlighter-rouge"><pre class="highlight"><code><span class="n">C</span><span class="err">#</span> <span class="n">Customer</span> <span class="n">fred</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Customer</span><span class="p">();</span>
+</code></pre>
+</div>
+<p>VB.NET:</p>
+<div class="language-vb highlighter-rouge"><pre class="highlight"><code><span class="n">VB</span><span class="p">.</span><span class="n">NET</span> <span class="n">dim</span> <span class="n">fred</span> <span class="ow">As</span> <span class="k">New</span> <span class="n">Customer</span>
+</code></pre>
+</div>
+<p>Ruby:</p>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="no">Ruby</span> <span class="n">fred</span> <span class="o">=</span> <span class="no">Customer</span><span class="p">.</span><span class="nf">new</span>
+</code></pre>
+</div>
+<p>C++:</p>
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">Customer</span> <span class="o">*</span><span class="n">fred</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Customer</span><span class="p">();</span>
+</code></pre>
+</div>
+<p>Obj-C:</p>
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="n">Objective</span><span class="o">-</span><span class="n">C</span> <span class="n">Customer</span> <span class="o">*</span><span class="n">fred</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Customer</span> <span class="p">[[</span><span class="nf">alloc</span><span class="p">]</span> <span class="nf">init</span><span class="p">]</span><span class="err">;</span>
+</code></pre>
+</div>
+
+<p>All of these essentially mean the same thing, we create our object class, or struct and from there we instantiate that object by performing the above syntax in your desired language.</p>
+
+<p>The usual way to take part of instantiation is through Constructors.</p>
+
+<h1 id="constructors">Constructors</h1>
+
+<p>A constructor is an OOP Concept, a special method exists, to construct the object.</p>
+
+<p>In our UML figure below, you see how our instance variables, only result in empty</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><em>Class: Spaceship</em></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong><em>State</em></strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">name: String</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shieldStrength: Integer</code></td>
+    </tr>
+    <tr>
+      <td><strong><em>Behaviors</em></strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">fire(): String</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">reduceShields(Integer)</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The question is, what is the internal state of this object? We typically know that the class has defined <em>Instance Variables</em>. When we instantiate the object by using <code class="highlighter-rouge">Spaceship excelsior = new Spaceship();</code></p>
+
+<p>In OOP Languages, we create a constructor by creating a method in the class, with the same name as the class. For instance:</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Spaceship</span> <span class="o">{</span>
+
+    <span class="c1">//instance variables</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">shieldStrength</span><span class="o">;</span>
+    
+    <span class="c1">//constructor method</span>
+    <span class="kd">public</span> <span class="nf">Spaceship</span><span class="o">()</span> <span class="o">{</span> <span class="c1">// method with the same name as the Class</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">"Unnamed ship"</span><span class="o">;</span>
+        <span class="n">shieldStrength</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">// other methods ommitted</span>
+    <span class="o">[...]</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>The above code shows that the object can be instantiated as an object with values through the constructor method. This is a basic constructor that takes no arguments. If you see a method with the same name as the class, this is known as a <em>constructor</em>.</p>
+
+<p>Most languages allow us to create multiple constructors, this is known as <em>overloading</em> our <em>constructors</em>.</p>
+
+<p>You can create a second <em>Method</em> with the same exact name, this would be known as the <em>Overloaded Constructor</em>. Here is what that code would look like, added to the above code.</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code>
+<span class="kd">public</span> <span class="nf">Spaceship</span><span class="o">(</span><span class="n">String</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span>
+    <span class="n">shieldStrength</span> <span class="o">=</span> <span class="mi">200</span><span class="o">;</span>
+<span class="o">}</span>
+
+</code></pre>
+</div>
+
+<p>When we instantiate the object, we have two ways to do it. We can use the word <code class="highlighter-rouge">new Spaceship("Excelsior 2");</code> Or we can traditionally just instantiate the object. I wanted to just give an example of what the UML would look like  after instantiating an object like this.</p>
+
+<p>UML for the object with an <em>Constructor</em> and <em>Overloaded Constructor</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th><em>Class: Spaceship</em></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong><em>State</em> </strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">name: String</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shieldStrength: Integer</code></td>
+    </tr>
+    <tr>
+      <td><strong><em>Behaviors</em></strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Spaceship()</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Spaceship(String)</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">fire(): String</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">reduceShields(Integer)</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="destructor">Destructor</h1>
+
+<p>When an object is no longer needed, in some languages – it is known as a finalizer, a place to put code that is called when the object is destroyed.</p>
+
+<p>Typically used when an Object is holding a <em>resource</em> and you just want to make sure the object has released any connection it has had before it was destroyed.</p>
+
+<h1 id="static-shared-members-or-class-variables">Static, Shared Members, or Class Variables</h1>
+
+<blockquote>
+  <p>Let’s say that we have a class as such in the UML Diagram below:</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>SavingsAccount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">accountNumber</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">balance</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">deposit()</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">withdraw()</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>We can instantiate multiple objects based on this class. Then we realize that we need something like an Interest rate, so now we can add an Instance variable.</p>
+
+<p>This allows us to avoid having thousands of copies of the same variable. In procedural programming, it may be tempting to instead store the value in a Global variable that is accessible throughout the program, in Object Oriented Programming we go about it differently.</p>
+
+<p>Class level variables, or <em>Static</em> variables.</p>
+
+<p>Some different examples in code of how this is accomplished:</p>
+
+<p>Java:</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SavingsAccount</span> <span class="o">{</span> 
+    <span class="c1">//instance variables</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="n">accountnumber</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">Money</span> <span class="n">balance</span><span class="o">;</span>
+    
+    <span class="c1">// static variables</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">float</span> <span class="n">interestRate</span><span class="o">;</span> 
+    
+    <span class="o">...</span>
+<span class="o">}</span>
+
+</code></pre>
+</div>
+<p>VB.net:</p>
+
+<div class="language-vb highlighter-rouge"><pre class="highlight"><code><span class="k">Public</span> <span class="k">Shared</span> <span class="n">interestRate</span> <span class="n">as</span> <span class="n">Float</span>
+</code></pre>
+</div>
+<p>Ruby:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="vc">@@interestRate</span>
+</code></pre>
+</div>
+
+<p>These are all referring to the same concept, static doesn’t mean constant or fixed, but static as opposed to dynamic.  We use only one of these variables, so we use <em>Static</em> to keep this variable accessible as a “Shared Member”, or class level variable.</p>
+
+<h1 id="accessing-objects">Accessing Objects</h1>
+
+<p>To access normal instance level variables, we use the name of the object to get to them. Lets say we have this object</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>SavingsAccount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">accountNumber</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">balance</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">deposit()</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">withdraw()</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>A quick example of instantiating a new object ‘joeAcct’ and accessing the instance variables contained.</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">Customer</span> <span class="n">joeAcct</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SavingsAccount</span><span class="o">();</span> 
+<span class="n">joeAcct</span><span class="o">.</span><span class="na">accountNumber</span> 
+<span class="n">joeAcct</span><span class="o">.</span><span class="na">balance</span> 
+</code></pre>
+</div>
+
+<h1 id="accessing-static-variables">Accessing Static Variables</h1>
+
+<p>You can use the Class name to access static variables set within the class, without the need to instantiate the object.</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">SavingsAccount</span><span class="o">.</span><span class="na">interestRate</span> <span class="o">=</span> <span class="mf">0.85</span><span class="o">;</span>
+</code></pre>
+</div>
+
+<p>This is the only way that you can get to these variables. Any variable defined as static can be used even before object instantiation. You can also create static methods, which means it is always accessible, for instance, a static method can only access static variables, you can’t write code to access instance level variables, but you can create static methods to get and set the interest rate.</p>
+
+<h1 id="uml-for-static-members">UML For Static Members</h1>
+
+<p>Static members are represented in UML with an underline.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>SavingsAccount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">accountNumber</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">balance</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">interestRate</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">getInterest(String n)</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">setInterest()</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">deposit()</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">withdraw()</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="finally">Finally</h1>
+
+<p>So far – I’ve learned a lot, from objects, instantiation, and state. To how encapsulation is used, e.g. using signs and controlling visibility.</p>
+
+<p>How to use constructors to set values when an object is instantiated, and how to also create instance methods that can be called after and even before object instantiation.</p>
+
+<p>I also enjoyed learning about static variables, and how they are used to access variables and methods at the class level.</p>
+
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2014/07/01/bgvid/" data-toggle="tooltip" data-placement="top" title="Full Width Video Header">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2017/07/03/Inheritance/" data-toggle="tooltip" data-placement="top" title="Inheritance">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div id="disqus_thread"></div>
+            <script>
+            /**
+            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+            */
+            /*
+                var disqus_config = function () {
+                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+            */
+            (function() {  // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+        
+                s.src = 'https://robmc.disqus.com/embed.js';
+        
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
+            </div>
+             <div class="advertisement">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- robmcelvenny.com -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9138756976382898"
+     data-ad-slot="5147608880"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>   
+        </div>
+        </div>
+        </article>
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://twitter.com/cocoabro">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="https://github.com/cocoabro">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="mailto:robert.mcelvenny@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">Copyright &copy; robmcelvenny.com 2017</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/clean-blog.min.js "></script>
+<script src="/js/sticky-sidebar.js "></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".sidebar").stickySidebar({
+            topSpacing: 20,
+            bottomSpacing: 20,
+            containerSelector: '.main-content',
+            innerWrapperSelector: '.sidebar__inner'
+        });	
+    });
+</script>
+
+    
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-102049437-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+
+</html>

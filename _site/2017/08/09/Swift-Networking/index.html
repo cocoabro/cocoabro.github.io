@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Live Journal, portfolio, and works from Rob McElvenny">
+
+    <title>Swift Networking - @rbo</title>
+
+    <link rel="canonical" href="http://localhost:4000/2017/08/09/Swift-Networking/">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/monokai.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="@rbo" />
+    <!-- Begin Jekyll SEO tag v2.2.3 -->
+<title>Swift Networking | @rbo</title>
+<meta property="og:title" content="Swift Networking" />
+<meta name="author" content="Rob" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Getting Started In this tutorial I go about understanding networking, calling an API, and parsing the JSON data received from the web service. Once we have received and parsed the data, we want to manipulate this data and do awesome stuff with it. Networking with Swift s In Swift, the URLSession method is instantiated as a Singleton class. A Singleton class is a shared instance and can only be instantiated once. Once you’ve created an Instance of URLSession.shared you can begin utilizing the methods from within. Setup We begin setting up our data by writing the following code in the example below. I will be using a very simple API web service provided by Sandip Bhagat. http://sandipbgt.com/theastrologer/ we start by building the URL. // Instantiate the URLSession Singleton class, create a url and request let session = URLSession.shared let urlString = URL(&quot;http://sandipbgt.com/theastrologer/api/horoscope/leo/today&quot;) let url = URL(string: urlString)! let request = URLRequest(url: url) let task = session.dataTask(with: request) { (data, response, error) in func displayError(_ error: String) { print(error) print(&quot;URL at time of error: \(url)&quot;) performUIUpdatesOnMain { self.setUIEnabled(true) } } } URL to Components When we are constructing our URL it is important that we use URLComponents. Note the methods have been updated in Swift 4: NSURLComponents has been renamed to URLComponents. NSURLQueryItem has been renamed to URLQueryItem. Breaking apart your request and each part into their own Components. Below is an example of how this is accomplished in Swift. import Foundation // Create an instance of URLComponents var components = URLComponents() // Based on RFC components.scheme = &quot;https&quot; components.host = &quot;api.flickr.com&quot; components.path = &quot;/services/rest&quot; components.queryItems = [URLQueryItem]() let queryItem1 = URLQueryItem(name: &quot;method&quot;, value: &quot;flickr.photos.search&quot;) let queryItem2 = URLQueryItem(name: &quot;api_key&quot;, value: &quot;1234&quot;) let queryItem3 = URLQueryItem(name: &quot;text&quot;, value: &quot;purple&quot;) components.queryItems!.append(queryItem1) components.queryItems!.append(queryItem2) components.queryItems!.append(queryItem3) print(components.url!) Right now, you’re looking at a high level overview of the components structure and how iOS handles URL (or more specifically URIs). However, there is a much better way to understand this with a simple diagram. The following are two example URIs and their component parts: foo://example.com:8042/over/there?name=ferret#nose \_/ \______________/\_________/ \_________/ \__/ | | | | | scheme host path query fragment | _____________________|__ / \ / \ urn:example:animal:ferret:nose The above illustration is taken from RFC-3986 which details how URI and URLs are broken up in components. Basic terminology of terms: URN — Unnform Resource Name, the Scheme used, which can be wss://, http://, ftp:// etc. Query - The query can be identified with the ? symbol. Parsing the JSON Manipulating the JSON Passing the Data Updating the UI if let imageData = try? Data(contentsOf: imageURL!) { performUIUpdatesOnMain { self.setUIEnabled(true) // cast the object into a UIImage and set it as the image for the imageView self.photoImageView.image = UIImage(data: imageData) // set text from data self.photoTitleLabel.text = photoTitle ?? &quot;(Untitled)&quot; } } Why do we want to do this? Well, the simplest explanation is that when you’re pulling data from the web, your View will not automatically update on the main thread without first calling this method. Later on, we’ll talk more about how asynchronous tasks are handled, and how GCD and updating views on the main thread will make your app work very smoothly." />
+<meta property="og:description" content="Getting Started In this tutorial I go about understanding networking, calling an API, and parsing the JSON data received from the web service. Once we have received and parsed the data, we want to manipulate this data and do awesome stuff with it. Networking with Swift s In Swift, the URLSession method is instantiated as a Singleton class. A Singleton class is a shared instance and can only be instantiated once. Once you’ve created an Instance of URLSession.shared you can begin utilizing the methods from within. Setup We begin setting up our data by writing the following code in the example below. I will be using a very simple API web service provided by Sandip Bhagat. http://sandipbgt.com/theastrologer/ we start by building the URL. // Instantiate the URLSession Singleton class, create a url and request let session = URLSession.shared let urlString = URL(&quot;http://sandipbgt.com/theastrologer/api/horoscope/leo/today&quot;) let url = URL(string: urlString)! let request = URLRequest(url: url) let task = session.dataTask(with: request) { (data, response, error) in func displayError(_ error: String) { print(error) print(&quot;URL at time of error: \(url)&quot;) performUIUpdatesOnMain { self.setUIEnabled(true) } } } URL to Components When we are constructing our URL it is important that we use URLComponents. Note the methods have been updated in Swift 4: NSURLComponents has been renamed to URLComponents. NSURLQueryItem has been renamed to URLQueryItem. Breaking apart your request and each part into their own Components. Below is an example of how this is accomplished in Swift. import Foundation // Create an instance of URLComponents var components = URLComponents() // Based on RFC components.scheme = &quot;https&quot; components.host = &quot;api.flickr.com&quot; components.path = &quot;/services/rest&quot; components.queryItems = [URLQueryItem]() let queryItem1 = URLQueryItem(name: &quot;method&quot;, value: &quot;flickr.photos.search&quot;) let queryItem2 = URLQueryItem(name: &quot;api_key&quot;, value: &quot;1234&quot;) let queryItem3 = URLQueryItem(name: &quot;text&quot;, value: &quot;purple&quot;) components.queryItems!.append(queryItem1) components.queryItems!.append(queryItem2) components.queryItems!.append(queryItem3) print(components.url!) Right now, you’re looking at a high level overview of the components structure and how iOS handles URL (or more specifically URIs). However, there is a much better way to understand this with a simple diagram. The following are two example URIs and their component parts: foo://example.com:8042/over/there?name=ferret#nose \_/ \______________/\_________/ \_________/ \__/ | | | | | scheme host path query fragment | _____________________|__ / \ / \ urn:example:animal:ferret:nose The above illustration is taken from RFC-3986 which details how URI and URLs are broken up in components. Basic terminology of terms: URN — Unnform Resource Name, the Scheme used, which can be wss://, http://, ftp:// etc. Query - The query can be identified with the ? symbol. Parsing the JSON Manipulating the JSON Passing the Data Updating the UI if let imageData = try? Data(contentsOf: imageURL!) { performUIUpdatesOnMain { self.setUIEnabled(true) // cast the object into a UIImage and set it as the image for the imageView self.photoImageView.image = UIImage(data: imageData) // set text from data self.photoTitleLabel.text = photoTitle ?? &quot;(Untitled)&quot; } } Why do we want to do this? Well, the simplest explanation is that when you’re pulling data from the web, your View will not automatically update on the main thread without first calling this method. Later on, we’ll talk more about how asynchronous tasks are handled, and how GCD and updating views on the main thread will make your app work very smoothly." />
+<link rel="canonical" href="http://localhost:4000/2017/08/09/Swift-Networking/" />
+<meta property="og:url" content="http://localhost:4000/2017/08/09/Swift-Networking/" />
+<meta property="og:site_name" content="@rbo" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-08-09T10:55:55-07:00" />
+<script type="application/ld+json">
+{"@context":"http://schema.org","@type":"BlogPosting","headline":"Swift Networking","author":{"@type":"Person","name":"Rob"},"datePublished":"2017-08-09T10:55:55-07:00","dateModified":"2017-08-09T10:55:55-07:00","description":"Getting Started In this tutorial I go about understanding networking, calling an API, and parsing the JSON data received from the web service. Once we have received and parsed the data, we want to manipulate this data and do awesome stuff with it. Networking with Swift s In Swift, the URLSession method is instantiated as a Singleton class. A Singleton class is a shared instance and can only be instantiated once. Once you’ve created an Instance of URLSession.shared you can begin utilizing the methods from within. Setup We begin setting up our data by writing the following code in the example below. I will be using a very simple API web service provided by Sandip Bhagat. http://sandipbgt.com/theastrologer/ we start by building the URL. // Instantiate the URLSession Singleton class, create a url and request let session = URLSession.shared let urlString = URL(&quot;http://sandipbgt.com/theastrologer/api/horoscope/leo/today&quot;) let url = URL(string: urlString)! let request = URLRequest(url: url) let task = session.dataTask(with: request) { (data, response, error) in func displayError(_ error: String) { print(error) print(&quot;URL at time of error: \\(url)&quot;) performUIUpdatesOnMain { self.setUIEnabled(true) } } } URL to Components When we are constructing our URL it is important that we use URLComponents. Note the methods have been updated in Swift 4: NSURLComponents has been renamed to URLComponents. NSURLQueryItem has been renamed to URLQueryItem. Breaking apart your request and each part into their own Components. Below is an example of how this is accomplished in Swift. import Foundation // Create an instance of URLComponents var components = URLComponents() // Based on RFC components.scheme = &quot;https&quot; components.host = &quot;api.flickr.com&quot; components.path = &quot;/services/rest&quot; components.queryItems = [URLQueryItem]() let queryItem1 = URLQueryItem(name: &quot;method&quot;, value: &quot;flickr.photos.search&quot;) let queryItem2 = URLQueryItem(name: &quot;api_key&quot;, value: &quot;1234&quot;) let queryItem3 = URLQueryItem(name: &quot;text&quot;, value: &quot;purple&quot;) components.queryItems!.append(queryItem1) components.queryItems!.append(queryItem2) components.queryItems!.append(queryItem3) print(components.url!) Right now, you’re looking at a high level overview of the components structure and how iOS handles URL (or more specifically URIs). However, there is a much better way to understand this with a simple diagram. The following are two example URIs and their component parts: foo://example.com:8042/over/there?name=ferret#nose \\_/ \\______________/\\_________/ \\_________/ \\__/ | | | | | scheme host path query fragment | _____________________|__ / \\ / \\ urn:example:animal:ferret:nose The above illustration is taken from RFC-3986 which details how URI and URLs are broken up in components. Basic terminology of terms: URN — Unnform Resource Name, the Scheme used, which can be wss://, http://, ftp:// etc. Query - The query can be identified with the ? symbol. Parsing the JSON Manipulating the JSON Passing the Data Updating the UI if let imageData = try? Data(contentsOf: imageURL!) { performUIUpdatesOnMain { self.setUIEnabled(true) // cast the object into a UIImage and set it as the image for the imageView self.photoImageView.image = UIImage(data: imageData) // set text from data self.photoTitleLabel.text = photoTitle ?? &quot;(Untitled)&quot; } } Why do we want to do this? Well, the simplest explanation is that when you’re pulling data from the web, your View will not automatically update on the main thread without first calling this method. Later on, we’ll talk more about how asynchronous tasks are handled, and how GCD and updating views on the main thread will make your app work very smoothly.","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2017/08/09/Swift-Networking/"},"url":"http://localhost:4000/2017/08/09/Swift-Networking/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">@rbo</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                
+				
+                <li>
+                    <a href="/about/">About</a>
+                </li>
+				
+                
+				
+                <li>
+                    <a href="/contact/">Contact</a>
+                </li>
+				
+                
+				
+                <li>
+                    <a href="/portfolio/">Portfolio</a>
+                </li>
+				
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-9138756976382898",
+    enable_page_level_ads: true
+  });
+</script>
+
+<!-- Post Header -->
+<header class="intro-header">
+    <div class="video-container">
+    <video autoplay loop muted class="bgvid" poster="/img/video.jpg">
+        <source src="/video/videoHeader.mp4" type="video/mp4">
+    </video>
+       <div class="overlay-desc">
+           <div class="span12">
+                <div class="site-heading">
+                    
+                    <h1>Swift Networking</h1>
+                    
+                    
+                    <h2 class="subheading">URLSession, JSONParse, manipulating data</h2>
+                    
+                    <span class="meta">Posted by Rob on August 9, 2017</span>
+                </div>
+            </div>
+       </div>     
+ </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<h1 id="getting-started">Getting Started</h1>
+
+<p>In this tutorial I go about understanding networking, calling an API, and parsing the JSON data received from the web service.</p>
+
+<p>Once we have received and parsed the data, we want to manipulate this data and do awesome stuff with it.</p>
+
+<h1 id="networking-with-swift-s">Networking with Swift s</h1>
+
+<p>In Swift, the URLSession method is instantiated as a Singleton class. A Singleton class is a shared instance and can only be instantiated once. Once you’ve created an Instance of <code class="highlighter-rouge">URLSession.shared</code> you can begin utilizing the methods from within.</p>
+
+<h1 id="setup">Setup</h1>
+
+<p>We begin setting up our data by writing the following code in the example below. I will be using a very simple API web service provided by Sandip Bhagat. http://sandipbgt.com/theastrologer/ we start by building the URL.</p>
+
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="c1">// Instantiate the URLSession Singleton class, create a url and request</span>
+
+<span class="k">let</span> <span class="nv">session</span> <span class="o">=</span> <span class="kt">URLSession</span><span class="o">.</span><span class="n">shared</span>
+<span class="k">let</span> <span class="nv">urlString</span> <span class="o">=</span> <span class="kt">URL</span><span class="p">(</span><span class="s">"http://sandipbgt.com/theastrologer/api/horoscope/leo/today"</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">url</span> <span class="o">=</span> <span class="kt">URL</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="n">urlString</span><span class="p">)</span><span class="o">!</span> 
+<span class="k">let</span> <span class="nv">request</span> <span class="o">=</span> <span class="kt">URLRequest</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="n">url</span><span class="p">)</span> 
+
+<span class="k">let</span> <span class="nv">task</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="nf">dataTask</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span> 
+    
+    <span class="kd">func</span> <span class="nf">displayError</span><span class="p">(</span><span class="n">_</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"URL at time of error: </span><span class="se">\(</span><span class="n">url</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+        <span class="n">performUIUpdatesOnMain</span> <span class="p">{</span> 
+            <span class="k">self</span><span class="o">.</span><span class="nf">setUIEnabled</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span> 
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre>
+</div>
+<h1 id="url-to-components">URL to Components</h1>
+
+<blockquote>
+  <p>When we are constructing our URL it is important that we use URLComponents.</p>
+</blockquote>
+
+<p>Note the methods have been updated in Swift 4:</p>
+
+<ul>
+  <li>
+    <p>NSURLComponents has been renamed to URLComponents.</p>
+  </li>
+  <li>
+    <p>NSURLQueryItem has been renamed to URLQueryItem.</p>
+  </li>
+</ul>
+
+<p>Breaking apart your request and each part into their own Components. Below is an example of how this is accomplished in Swift.</p>
+
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="kd">import</span> <span class="kt">Foundation</span>
+
+<span class="c1">// Create an instance of URLComponents</span>
+<span class="k">var</span> <span class="nv">components</span> <span class="o">=</span> <span class="kt">URLComponents</span><span class="p">()</span>
+
+<span class="c1">// Based on RFC </span>
+<span class="n">components</span><span class="o">.</span><span class="n">scheme</span> <span class="o">=</span> <span class="s">"https"</span>
+<span class="n">components</span><span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="s">"api.flickr.com"</span>
+<span class="n">components</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="s">"/services/rest"</span>
+<span class="n">components</span><span class="o">.</span><span class="n">queryItems</span> <span class="o">=</span> <span class="p">[</span><span class="kt">URLQueryItem</span><span class="p">]()</span> 
+
+<span class="k">let</span> <span class="nv">queryItem1</span> <span class="o">=</span> <span class="kt">URLQueryItem</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"method"</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="s">"flickr.photos.search"</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">queryItem2</span> <span class="o">=</span> <span class="kt">URLQueryItem</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"api_key"</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="s">"1234"</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">queryItem3</span> <span class="o">=</span> <span class="kt">URLQueryItem</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"text"</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="s">"purple"</span><span class="p">)</span>
+
+<span class="n">components</span><span class="o">.</span><span class="n">queryItems</span><span class="o">!.</span><span class="nf">append</span><span class="p">(</span><span class="n">queryItem1</span><span class="p">)</span>
+<span class="n">components</span><span class="o">.</span><span class="n">queryItems</span><span class="o">!.</span><span class="nf">append</span><span class="p">(</span><span class="n">queryItem2</span><span class="p">)</span>
+<span class="n">components</span><span class="o">.</span><span class="n">queryItems</span><span class="o">!.</span><span class="nf">append</span><span class="p">(</span><span class="n">queryItem3</span><span class="p">)</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="n">components</span><span class="o">.</span><span class="n">url</span><span class="o">!</span><span class="p">)</span> 
+
+</code></pre>
+</div>
+
+<p>Right now, you’re looking at a high level overview of the components structure and how iOS handles URL (or more specifically URIs). However, there is a much better way to understand this with a simple diagram.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>
+   <span class="nx">The</span> <span class="nx">following</span> <span class="nx">are</span> <span class="nx">two</span> <span class="nx">example</span> <span class="nx">URIs</span> <span class="nx">and</span> <span class="nx">their</span> <span class="nx">component</span> <span class="nx">parts</span><span class="err">:</span>
+
+         <span class="nl">foo</span><span class="p">:</span><span class="c1">//example.com:8042/over/there?name=ferret#nose</span>
+         <span class="err">\</span><span class="nx">_</span><span class="o">/</span>   <span class="err">\</span><span class="nx">______________</span><span class="o">/</span><span class="err">\</span><span class="nx">_________</span><span class="o">/</span> <span class="err">\</span><span class="nx">_________</span><span class="o">/</span> <span class="err">\</span><span class="nx">__</span><span class="o">/</span>
+          <span class="o">|</span>           <span class="o">|</span>            <span class="o">|</span>            <span class="o">|</span>        <span class="o">|</span>
+       <span class="nx">scheme</span>     <span class="nx">host</span>       <span class="nx">path</span>        <span class="nx">query</span>   <span class="nx">fragment</span>
+          <span class="o">|</span>   <span class="nx">_____________________</span><span class="o">|</span><span class="nx">__</span>
+         <span class="sr">/ </span><span class="se">\ </span><span class="sr">/</span>                        <span class="o">\</span>
+         <span class="nx">urn</span><span class="err">:</span><span class="nx">example</span><span class="err">:</span><span class="nx">animal</span><span class="err">:</span><span class="nx">ferret</span><span class="err">:</span><span class="nx">nose</span>
+
+</code></pre>
+</div>
+
+<p>The above illustration is taken from RFC-3986 which details how URI and URLs are broken up in components.</p>
+
+<p>Basic terminology of terms:</p>
+
+<p>URN — Unnform Resource Name, the Scheme used, which can be <code class="highlighter-rouge">wss://</code>, <code class="highlighter-rouge">http://</code>, <code class="highlighter-rouge">ftp://</code> etc.
+Query - The query can be identified with the ? symbol.</p>
+
+<h1 id="parsing-the-json">Parsing the JSON</h1>
+
+<h1 id="manipulating-the-json">Manipulating the JSON</h1>
+
+<h1 id="passing-the-data">Passing the Data</h1>
+
+<h1 id="updating-the-ui">Updating the UI</h1>
+
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code>
+<span class="k">if</span> <span class="k">let</span> <span class="nv">imageData</span> <span class="o">=</span> <span class="k">try</span><span class="p">?</span> <span class="kt">Data</span><span class="p">(</span><span class="nv">contentsOf</span><span class="p">:</span> <span class="n">imageURL</span><span class="o">!</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">performUIUpdatesOnMain</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="nf">setUIEnabled</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+        
+        <span class="c1">// cast the object into a UIImage and set it as the image for the imageView</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">photoImageView</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="kt">UIImage</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="n">imageData</span><span class="p">)</span> 
+        
+        <span class="c1">// set text from data </span>
+        <span class="k">self</span><span class="o">.</span><span class="n">photoTitleLabel</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">photoTitle</span> <span class="p">??</span> <span class="s">"(Untitled)"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre>
+</div>
+
+<p>Why do we want to do this? Well, the simplest explanation is that when you’re pulling data from the web, your View will not automatically update on the main thread without first calling this method. Later on, we’ll talk more about how asynchronous tasks are handled, and how GCD and updating views on the main thread will make your app work very smoothly.</p>
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2017/08/09/GitReference/" data-toggle="tooltip" data-placement="top" title="Git Reference">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div id="disqus_thread"></div>
+            <script>
+            /**
+            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+            */
+            /*
+                var disqus_config = function () {
+                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+            */
+            (function() {  // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+        
+                s.src = 'https://robmc.disqus.com/embed.js';
+        
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
+            </div>
+             <div class="advertisement">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- robmcelvenny.com -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9138756976382898"
+     data-ad-slot="5147608880"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>   
+        </div>
+        </div>
+        </article>
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://twitter.com/cocoabro">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="https://github.com/cocoabro">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="mailto:robert.mcelvenny@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">Copyright &copy; robmcelvenny.com 2017</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/clean-blog.min.js "></script>
+<script src="/js/sticky-sidebar.js "></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".sidebar").stickySidebar({
+            topSpacing: 20,
+            bottomSpacing: 20,
+            containerSelector: '.main-content',
+            innerWrapperSelector: '.sidebar__inner'
+        });	
+    });
+</script>
+
+    
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-102049437-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+
+</html>

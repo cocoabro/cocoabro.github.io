@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Live Journal, portfolio, and works from Rob McElvenny">
+
+    <title>Interfaces - @rbo</title>
+
+    <link rel="canonical" href="http://localhost:4000/2017/07/04/Interfaces/">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/monokai.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="@rbo" />
+    <!-- Begin Jekyll SEO tag v2.2.3 -->
+<title>Interfaces | @rbo</title>
+<meta property="og:title" content="Interfaces" />
+<meta name="author" content="Rob" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Defining and Using interfaces" />
+<meta property="og:description" content="Defining and Using interfaces" />
+<link rel="canonical" href="http://localhost:4000/2017/07/04/Interfaces/" />
+<meta property="og:url" content="http://localhost:4000/2017/07/04/Interfaces/" />
+<meta property="og:site_name" content="@rbo" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-07-04T00:00:00-07:00" />
+<script type="application/ld+json">
+{"@context":"http://schema.org","@type":"BlogPosting","headline":"Interfaces","author":{"@type":"Person","name":"Rob"},"datePublished":"2017-07-04T00:00:00-07:00","dateModified":"2017-07-04T00:00:00-07:00","description":"Defining and Using interfaces","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2017/07/04/Interfaces/"},"url":"http://localhost:4000/2017/07/04/Interfaces/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">@rbo</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                
+				
+                <li>
+                    <a href="/about/">About</a>
+                </li>
+				
+                
+				
+                <li>
+                    <a href="/contact/">Contact</a>
+                </li>
+				
+                
+				
+                <li>
+                    <a href="/portfolio/">Portfolio</a>
+                </li>
+				
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-9138756976382898",
+    enable_page_level_ads: true
+  });
+</script>
+
+<!-- Post Header -->
+<header class="intro-header">
+    <div class="video-container">
+    <video autoplay loop muted class="bgvid" poster="/img/video.jpg">
+        <source src="/video/videoHeader.mp4" type="video/mp4">
+    </video>
+       <div class="overlay-desc">
+           <div class="span12">
+                <div class="site-heading">
+                    
+                    <h1>Interfaces</h1>
+                    
+                    
+                    <h2 class="subheading">Signing a contract</h2>
+                    
+                    <span class="meta">Posted by Rob on July 4, 2017</span>
+                </div>
+            </div>
+       </div>     
+ </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<h1 id="defining-and-using-interfaces">Defining and Using interfaces</h1>
+
+<p>The term interface does not mean, user interface. An interface is created similar to a class, but with no functionality, or no actual code or behaviour. In java, interfaces are written in a specific way.</p>
+
+<p>In Java you can begin creating your interface like this:</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Printable</span> <span class="o">{</span> 
+
+    <span class="c1">// method signatures</span>
+    <span class="kt">void</span> <span class="nf">print</span><span class="o">();</span> 
+    <span class="kt">void</span> <span class="nf">printToPDF</span><span class="o">(</span><span class="n">String</span> <span class="n">filename</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>So you might ask, what is the point of this? You’re not allowed to put functionality inside an interface. If we create a new class and we choose to implement an interface, we are essentially signing a contract. The main idea when signing a contract is that you aren’t the only one who will sign.</p>
+
+<p>Does the object support the particular interface? You can call things like the print method as I know that the object shares the same interface.</p>
+
+<p>An interface typically contains what we would call <em>method signatures</em> that essentially have no functionality.</p>
+
+<blockquote>
+  <p>Program to an interface, not to an implementation. – Design Patterns, 1995</p>
+</blockquote>
+
+<p>Not all languages support the idea of interface and implmentation. In Objective-C, it is known as conforming to the protocol.</p>
+
+<p>An interface is just a list of method signatures, similar to a class, but has no actual functionality, code, or behavior.</p>
+
+<h1 id="aggregation-and-composition">Aggregation and composition.</h1>
+
+<p>Aggregation works differently, previously we wrote about how a <em>car is a vehicle</em> and that a car can’t inherit as a bus.</p>
+
+<p>In terms of Aggregation you can think of it in a “HAS A” relationship.</p>
+
+<p>As an example:</p>
+
+<ul>
+  <li>A customer has a address.</li>
+  <li>A car has a engine.</li>
+</ul>
+
+<p>It can implicitly suggest things like:</p>
+
+<ul>
+  <li>A bank has many bank accounts.</li>
+</ul>
+
+<p>In UML it is displayed like this:</p>
+
+<p><img src="/img/umlAgg.png" alt="UML aggregation" /></p>
+
+<p>The empty diamond refers to aggregation.</p>
+
+<ul>
+  <li>1 Classrom: Refers to the classrom object.
+    <ul>
+      <li>*Student: Refers to 0 to many students.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Aggregation describes a “HAS A” relationship.</p>
+
+<h1 id="composition">Composition</h1>
+
+<p>Composition is essentially aggregation, but a more specific form of it.</p>
+
+<p>The solid diamond refers to composition.</p>
+
+<p>It implies ownership, such as that if you deleted the document object, all the associated page objects to be deleted to.</p>
+
+<p><img src="/img/umlComp.png" alt="UML composition" /></p>
+
+<h1 id="ownership">Ownership</h1>
+
+<p>The differences between aggregation and composition is as shows. In an aggregation situation, if we deleted the classroom object, I wouldn’t expect a student object to get destroyed. In aggregation, students could be used in different objects.</p>
+
+<p>The student object will still exist since there is no ownership implied, there would be no need to have a constructor as well as a destructor created.</p>
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2017/07/03/Inheritance/" data-toggle="tooltip" data-placement="top" title="Inheritance">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2017/07/05/DesignPtrns/" data-toggle="tooltip" data-placement="top" title="Design Patterns">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div id="disqus_thread"></div>
+            <script>
+            /**
+            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+            */
+            /*
+                var disqus_config = function () {
+                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+            */
+            (function() {  // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+        
+                s.src = 'https://robmc.disqus.com/embed.js';
+        
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
+            </div>
+             <div class="advertisement">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- robmcelvenny.com -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9138756976382898"
+     data-ad-slot="5147608880"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>   
+        </div>
+        </div>
+        </article>
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://twitter.com/cocoabro">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="https://github.com/cocoabro">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="mailto:robert.mcelvenny@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">Copyright &copy; robmcelvenny.com 2017</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/clean-blog.min.js "></script>
+<script src="/js/sticky-sidebar.js "></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".sidebar").stickySidebar({
+            topSpacing: 20,
+            bottomSpacing: 20,
+            containerSelector: '.main-content',
+            innerWrapperSelector: '.sidebar__inner'
+        });	
+    });
+</script>
+
+    
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-102049437-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+
+</html>

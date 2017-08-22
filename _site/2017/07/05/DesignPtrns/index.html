@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Live Journal, portfolio, and works from Rob McElvenny">
+
+    <title>Design Patterns - @rbo</title>
+
+    <link rel="canonical" href="http://localhost:4000/2017/07/05/DesignPtrns/">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/monokai.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="@rbo" />
+    <!-- Begin Jekyll SEO tag v2.2.3 -->
+<title>Design Patterns | @rbo</title>
+<meta property="og:title" content="Design Patterns" />
+<meta name="author" content="Rob" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Design Patterns" />
+<meta property="og:description" content="Design Patterns" />
+<link rel="canonical" href="http://localhost:4000/2017/07/05/DesignPtrns/" />
+<meta property="og:url" content="http://localhost:4000/2017/07/05/DesignPtrns/" />
+<meta property="og:site_name" content="@rbo" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-07-05T00:00:00-07:00" />
+<script type="application/ld+json">
+{"@context":"http://schema.org","@type":"BlogPosting","headline":"Design Patterns","author":{"@type":"Person","name":"Rob"},"datePublished":"2017-07-05T00:00:00-07:00","dateModified":"2017-07-05T00:00:00-07:00","description":"Design Patterns","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2017/07/05/DesignPtrns/"},"url":"http://localhost:4000/2017/07/05/DesignPtrns/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">@rbo</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                
+				
+                <li>
+                    <a href="/about/">About</a>
+                </li>
+				
+                
+				
+                <li>
+                    <a href="/contact/">Contact</a>
+                </li>
+				
+                
+				
+                <li>
+                    <a href="/portfolio/">Portfolio</a>
+                </li>
+				
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-9138756976382898",
+    enable_page_level_ads: true
+  });
+</script>
+
+<!-- Post Header -->
+<header class="intro-header">
+    <div class="video-container">
+    <video autoplay loop muted class="bgvid" poster="/img/video.jpg">
+        <source src="/video/videoHeader.mp4" type="video/mp4">
+    </video>
+       <div class="overlay-desc">
+           <div class="span12">
+                <div class="site-heading">
+                    
+                    <h1>Design Patterns</h1>
+                    
+                    
+                    <h2 class="subheading">Learning Design Patternsm</h2>
+                    
+                    <span class="meta">Posted by Rob on July 5, 2017</span>
+                </div>
+            </div>
+       </div>     
+ </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<h1 id="design-patterns">Design Patterns</h1>
+
+<p>With familiarity, design patterns are well tested solutions to common problems and issues that we may run into in Software Development. They are essentially “Templates” that are using for a specific issue. For instance, of one object changes and you want other objects to know. Instead of recreating the wheel, you could use the <em>Observer</em> design pattern.</p>
+
+<p>In 1990, Design Patterns: Elements of Reusable Object-Oriented Software, was created by a group of people (The authors of the book) known as the “Gang of Four” Their names are Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides. Exploring most of OOP and design patterns, written with C++ and Smalltalk.</p>
+
+<p>Example of Design Patterns</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Creational</th>
+      <th>Structural</th>
+      <th>Behavioral</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Absract Factory</td>
+      <td>Adapter</td>
+      <td>Chain of Responsibility</td>
+    </tr>
+    <tr>
+      <td>Builder</td>
+      <td>Bridge</td>
+      <td>Command</td>
+    </tr>
+    <tr>
+      <td>Factory Method</td>
+      <td>Composite</td>
+      <td>Interpreter</td>
+    </tr>
+    <tr>
+      <td>Prototype</td>
+      <td>Decorator</td>
+      <td>Iterator</td>
+    </tr>
+    <tr>
+      <td>Singleton</td>
+      <td>Facade</td>
+      <td>Mediator</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Flyweight</td>
+      <td>Memento</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td>Observer</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td>State</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td>Strategy</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td>Template Method</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td>Visitor</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>For this post, there is only going to be two design patterns reviewed.</p>
+
+<h1 id="singleton-pattern">Singleton pattern</h1>
+
+<p>Let’s say we create a class, and we only want one object of this particular class. This object needs to represent the currently running application — having more than one object may cause problems throughout the application itself. You could always NOT create more than one Object, but with design patterns, we can use the Singleton pattern to do this.</p>
+
+<p>We don’t need to instantiate a Singleton, but that it is always running through the application.</p>
+
+<p>Begin by first creating our class as displayed in the code below:</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code>
+    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">MySingleton</span> <span class="o">{</span>
+
+        <span class="c1">// additional functionality</span>
+        <span class="kd">public</span> <span class="nf">someMethod</span><span class="o">()</span> <span class="o">{</span>
+            <span class="c1">//...</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</code></pre>
+</div>
+
+<p>We then would add our constructor method, but we make it private, meaning that no other object can instantiate:</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code>    
+    <span class="c1">// a private constructor, no other objects can instantiate this</span>
+    <span class="kd">private</span> <span class="nf">MySingleton</span><span class="o">()</span> <span class="o">{</span> <span class="o">}</span> 
+    
+</code></pre>
+</div>
+
+<p>So how does the object get instantiated? Here comes the tricky part — creating a static variable, that holds a placeholder to the singleton object.</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code>
+    <span class="c1">// placeholder for the current singleton object</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">MySingleton</span> <span class="n">__me</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    
+    <span class="c1">// How you ask for the singleton</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">MySingleton</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
+    
+        <span class="c1">// check existence</span>
+        <span class="k">if</span> <span class="o">(</span> <span class="n">__me</span> <span class="o">==</span> <span class="kc">null</span><span class="o">){</span>
+            <span class="c1">//if not, instantiate object and store</span>
+            <span class="n">__me</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MySingleton</span><span class="o">();</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">__me</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="nf">someMethod</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">//...</span>
+        <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>We don’t have an instance just yet, first ask if the object exists. This is a technique known as <em>Lazy Instantiation</em> there is only one of these, and there is always one of these.</p>
+
+<p>Asking for the singleton within the application is as such, which you can use in 3 different ways:</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code>
+    <span class="n">MySingleton</span> <span class="n">single</span> <span class="o">=</span> <span class="n">MySingleton</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
+
+
+    <span class="c1">// using it somewhere</span>
+    <span class="n">single</span><span class="o">.</span><span class="na">someMethod</span><span class="o">();</span>
+
+    <span class="c1">// or call directly</span>
+
+    <span class="n">MySingleton</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">someMethod</span><span class="o">();</span>
+</code></pre>
+</div>
+
+<h1 id="memento-pattern">Memento Pattern</h1>
+
+<p>This design pattern manages change, but does it in a way that does not violate encapsulation. It requires 3 classes that have certain roles. These are known as such:</p>
+
+<ul>
+  <li><em>The Originator</em></li>
+  <li><em>The Caretaker</em></li>
+  <li><em>The Memento</em></li>
+</ul>
+
+<h1 id="the-originator">The Originator</h1>
+
+<p>This object, we want to be able to change and then undo any changes to. It is not encumbered by keeping track of multiple states.</p>
+
+<h1 id="the-caretaker">The CareTaker</h1>
+
+<p>When and why asks the Originator to save it’s state, and passes receives the Memento object. The Caretaker doesn’t know anything about the state of the Memento, it is simply there to save state, and undo any changes by handing the previous memento back to the originator. The caretaker can also ask for multiple levels of mementos, or basically multiple levels of undo.</p>
+
+<p>Encapsulation is not being broken during this time.</p>
+
+<h1 id="what-is-a-memento-then">What is a Memento Then?</h1>
+
+<p>The <em>Memento</em> object, is what gets created when the <em>CareTaker</em> class requests that the Originator save itself. The memento details the parts of the Originator class and any information needed to return to a particular state.</p>
+
+<h1 id="there-you-have-it">There you have it</h1>
+
+<p>I did not want to go too deep into details because there are many Design Patterns that exist and can be applied within your applications. I am mostly interested in iOS, and I did find additional resources for applying Design Patterns in your iOS projects, you can check out <a href="https://www.raywenderlich.com/46988/ios-design-patterns">iOS Design Patterns</a> on Raywenderlich if you’re interested.</p>
+
+<p>Later on, I’ll have more posts that go into more detail about this.</p>
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2017/07/04/Interfaces/" data-toggle="tooltip" data-placement="top" title="Interfaces">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2017/08/09/GitReference/" data-toggle="tooltip" data-placement="top" title="Git Reference">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div id="disqus_thread"></div>
+            <script>
+            /**
+            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+            */
+            /*
+                var disqus_config = function () {
+                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+            */
+            (function() {  // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+        
+                s.src = 'https://robmc.disqus.com/embed.js';
+        
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
+            </div>
+             <div class="advertisement">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- robmcelvenny.com -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9138756976382898"
+     data-ad-slot="5147608880"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>   
+        </div>
+        </div>
+        </article>
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://twitter.com/cocoabro">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="https://github.com/cocoabro">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="mailto:robert.mcelvenny@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">Copyright &copy; robmcelvenny.com 2017</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/clean-blog.min.js "></script>
+<script src="/js/sticky-sidebar.js "></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".sidebar").stickySidebar({
+            topSpacing: 20,
+            bottomSpacing: 20,
+            containerSelector: '.main-content',
+            innerWrapperSelector: '.sidebar__inner'
+        });	
+    });
+</script>
+
+    
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-102049437-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+
+</html>
