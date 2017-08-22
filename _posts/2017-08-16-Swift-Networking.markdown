@@ -181,7 +181,9 @@ When handling these kinds of operations in your application, it is extremely imp
 
 Why do we want to do this? Well, the simplest explanation is that when you're pulling data from the web, your View will not automatically update on the main thread without first calling this method. Later on, we'll talk more about how asynchronous tasks are handled, and how GCD and updating views on the main thread will make your app work very smoothly. 
 
-# Breaking it down
+# Breaking Down The Code
+
+Here is the ViewController.swift file and we're going to tackle each part of it in chunks. Breaking down the app into parts will make it a lot easier to understand whats going on.
 
 ``` swift
 //
@@ -230,6 +232,13 @@ class ViewController: UIViewController {
         unsubscribeFromAllNotifications()
     }
     
+    
+```
+
+test 
+
+``` swift
+    
     // MARK: Search Actions
     
     @IBAction func searchByPhrase(_ sender: AnyObject) {
@@ -255,6 +264,11 @@ class ViewController: UIViewController {
         }
     }
     
+```
+test
+
+``` swift
+    
     @IBAction func searchByLatLon(_ sender: AnyObject) {
 
         userDidTapView(self)
@@ -279,6 +293,10 @@ class ViewController: UIViewController {
         }
     }
     
+```
+
+``` swift
+    
     private func bboxString() -> String {        
         // ensure bbox is bounded by minimum and maximums
         if let latitude = Double(latitudeTextField.text!), let longitude = Double(longitudeTextField.text!) {
@@ -291,6 +309,9 @@ class ViewController: UIViewController {
             return "0,0,0,0"
         }
     }
+```
+
+``` swift
         
     // MARK: Flickr API
     
@@ -312,25 +333,35 @@ class ViewController: UIViewController {
                     self.photoImageView.image = nil
                 }
             }
-            
+
+``` 
+
+``` swift
             /* GUARD: Was there an error? */
             guard (error == nil) else {
                 displayError("There was an error with your request: \(error)")
                 return
             }
+```
+
+``` swift
             
             /* GUARD: Did we get a successful 2XX response? */
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
                 displayError("Your request returned a status code other than 2xx!")
                 return
             }
-            
+```
+
+``` swift
             /* GUARD: Was there any data returned? */
             guard let data = data else {
                 displayError("No data was returned by the request!")
                 return
             }
-            
+```
+
+``` swift
             // parse the data
             let parsedResult: [String:AnyObject]!
             do {
@@ -339,25 +370,33 @@ class ViewController: UIViewController {
                 displayError("Could not parse the data as JSON: '\(data)'")
                 return
             }
-            
+```
+
+``` swift
             /* GUARD: Did Flickr return an error (stat != ok)? */
             guard let stat = parsedResult[Constants.FlickrResponseKeys.Status] as? String, stat == Constants.FlickrResponseValues.OKStatus else {
                 displayError("Flickr API returned an error. See error code and message in \(parsedResult)")
                 return
             }
-            
+```
+
+``` swift
             /* GUARD: Is "photos" key in our result? */
             guard let photosDictionary = parsedResult[Constants.FlickrResponseKeys.Photos] as? [String:AnyObject] else {
                 displayError("Cannot find keys '\(Constants.FlickrResponseKeys.Photos)' in \(parsedResult)")
                 return
             }
-            
+```
+
+``` swift
             /* GUARD: Is "pages" key in the photosDictionary? */
             guard let totalPages = photosDictionary[Constants.FlickrResponseKeys.Pages] as? Int else {
                 displayError("Cannot find key '\(Constants.FlickrResponseKeys.Pages)' in \(photosDictionary)")
                 return
             }
-            
+```
+
+``` swift
             // pick a random page!
             let pageLimit = min(totalPages, 40)
             let randomPage = Int(arc4random_uniform(UInt32(pageLimit))) + 1
@@ -367,6 +406,11 @@ class ViewController: UIViewController {
         // start the task!
         task.resume()
     }
+    
+```
+Here's where I don't understand why we are making the same exact call to the same url, just with different methodParameters, instead of lat/long we are searching a phrase.
+
+``` swift
     
     // FIX: For Swift 3, variable parameters are being depreciated. Instead, create a copy of the parameter inside the function.
     
@@ -392,13 +436,17 @@ class ViewController: UIViewController {
                     self.photoImageView.image = nil
                 }
             }
-            
+```
+
+From here we have already learned that it's all the same stuff, there is a better way of performing this. 
+
+``` swift
             /* GUARD: Was there an error? */
             guard (error == nil) else {
                 displayError("There was an error with your request: \(error)")
                 return
             }
-            
+```   
             /* GUARD: Did we get a successful 2XX response? */
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
                 displayError("Your request returned a status code other than 2xx!")
@@ -437,6 +485,7 @@ class ViewController: UIViewController {
                 displayError("Cannot find key '\(Constants.FlickrResponseKeys.Photo)' in \(photosDictionary)")
                 return
             }
+``` swift
             
             if photosArray.count == 0 {
                 displayError("No Photos Found. Search Again.")
@@ -445,13 +494,17 @@ class ViewController: UIViewController {
                 let randomPhotoIndex = Int(arc4random_uniform(UInt32(photosArray.count)))
                 let photoDictionary = photosArray[randomPhotoIndex] as [String: AnyObject]
                 let photoTitle = photoDictionary[Constants.FlickrResponseKeys.Title] as? String
-                
+```
+
+``` swift
                 /* GUARD: Does our photo have a key for 'url_m'? */
                 guard let imageUrlString = photoDictionary[Constants.FlickrResponseKeys.MediumURL] as? String else {
                     displayError("Cannot find key '\(Constants.FlickrResponseKeys.MediumURL)' in \(photoDictionary)")
                     return
                 }
-                
+```
+
+``` swift
                 // if an image exists at the url, set the image and title
                 let imageURL = URL(string: imageUrlString)
                 if let imageData = try? Data(contentsOf: imageURL!) {
@@ -469,7 +522,8 @@ class ViewController: UIViewController {
         // start the task!
         task.resume()
     }
-    
+```
+``` swift    
     // MARK: Helper for Creating a URL from Parameters
     
     private func flickrURLFromParameters(_ parameters: [String:AnyObject]) -> URL {
@@ -488,6 +542,9 @@ class ViewController: UIViewController {
         return components.url!
     }
 }
+```
+
+``` swift
 
 // MARK: - ViewController: UITextFieldDelegate
 
@@ -555,6 +612,10 @@ extension ViewController: UITextFieldDelegate {
     }
 }
 
+```
+
+``` swift
+
 // MARK: - ViewController (Configure UI)
 
 private extension ViewController {
@@ -592,4 +653,3 @@ private extension ViewController {
 }
 
 ```
-
