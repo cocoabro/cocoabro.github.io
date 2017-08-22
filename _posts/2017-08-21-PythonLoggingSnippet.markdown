@@ -35,7 +35,3 @@ logging.basicConfig()
 It's not much, but this is a fast way to get you the information you need! 
 
 Any questions? Don't hesitate to write to me at rob@robmcelvenny.com or leave your comments in the disqus box below! 
-
-
-git remote add origin https://cocoabro:|}{!#gb123X!#@github.com/cocoabro.github.io.git
-
