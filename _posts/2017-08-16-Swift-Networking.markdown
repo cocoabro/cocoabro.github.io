@@ -179,20 +179,11 @@ When handling these kinds of operations in your application, it is extremely imp
 
 ## Background Thread
 
-
-
-``` 
-
-
 Why do we want to do this? Well, the simplest explanation is that when you're pulling data from the web, your View will not automatically update on the main thread without first calling this method. Later on, we'll talk more about how asynchronous tasks are handled, and how GCD and updating views on the main thread will make your app work very smoothly. 
-
-
-
 
 # Breaking it down
 
 ``` swift
-
 //
 //  ViewController.swift
 //  FlickFinder
