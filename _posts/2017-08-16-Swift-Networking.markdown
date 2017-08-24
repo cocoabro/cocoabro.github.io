@@ -17,6 +17,7 @@ In this guide, we will go through the various aspects of SleepingInTheLibrary. Y
 - How to use Flickrs web service to make an API call for data.
 - How to manipulate the data within.
 - Swift dictionaries and how they work. 
+- Using a helper function like URLComponents
 - Storing data in Key-Value Pairs. 
 - Error handling in case something goes wrong. 
 
@@ -29,7 +30,6 @@ Swift can handle errors very well. We use error handling to tell our programs wh
 You can perform Error handling as such: 
 
 ``` swift
-
 do { 
 
 } catch { 
@@ -68,25 +68,34 @@ Here are some key concepts to study and understand:
 
 - **NSDictionary** — Objective-C’s version of a Dictionary; sometimes we must use it in Swift when working with Objective-C APIs.
 
-- NSArray — Objective-C’s version of an Array; sometimes we must use it in Swift when working with Objective-C APIs.
+- **NSArray — Objective-C’s version of an Array; sometimes we must use it in Swift when working with Objective-C APIs.
 
-
-# Networking with Swift
-
-In Swift, the URLSession method is instantiated as a Singleton class. A Singleton class is a shared instance and can only be instantiated once. Once you've created an Instance of ``` URLSession.shared ``` you can begin utilizing the methods from within. 
 
 # Setup 
 
-We begin setting up our data by writing the following code in the example below. I will be using a very simple API web service provided by Sandip Bhagat. http://sandipbgt.com/theastrologer/ we start by building the URL. 
+Begin setting up our data by writing the following code in the example below. I will be using a very simple API web service provided by Sandip Bhagat.
+
+[Sandipbgt The Astrologers API](http://sandipbgt.com/theastrologer/)
+
+--- 
+
+# Creating URLSession
+In the code example below, I want to go through each part of the breakdown. 
+
 
 ``` swift 
 // Instantiate the URLSession Singleton class, create a url and request
-
 let session = URLSession.shared
 let urlString = URL("http://sandipbgt.com/theastrologer/api/horoscope/leo/today")
 let url = URL(string: urlString)! 
 let request = URLRequest(url: url) 
+```
 
+We begin by creating an instance of the URLSession.shared singleton. We then create the actual urlString and define it with URL("http://"). We store this inside of the url constant and forcibly unwrap the optional as we know that there is a value stored inside of it. We create a new constant named request and use our newly created url. 
+
+# Creating an error function. 
+
+``` swift
 let task = session.dataTask(with: request) { (data, response, error) in     
     func displayError(_ error: String) {
         print(error)
@@ -156,7 +165,7 @@ Basic terminology of terms:
 URN — Unnform Resource Name, the Scheme used, which can be `wss://`, `http://`, `ftp://` etc.
 Query - The query can be identified with the ? symbol. 
 
-# Updating UI 
+# Updating UI On the Main Thread 
 
 ``` swift
 if let imageData = try? Data(contentsOf: imageURL!) {
@@ -170,7 +179,6 @@ if let imageData = try? Data(contentsOf: imageURL!) {
         self.photoTitleLabel.text = photoTitle ?? "(Untitled)"
     }
 }
-
 ```
 
 When handling these kinds of operations in your application, it is extremely important that you understand the concept of multi-threaded programming, or in the case of Swift, Asynchronus tasks and Grand Central Dispatch. 
@@ -185,15 +193,23 @@ Why do we want to do this? Well, the simplest explanation is that when you're pu
 
 Here is the ViewController.swift file and we're going to tackle each part of it in chunks. Breaking down the app into parts will make it a lot easier to understand whats going on.
 
+
+
 ``` swift
 //
 //  ViewController.swift
-//  FlickFinder
+//  FlickFinder 
 //
 //  Created by Rob McElvenny on 11/5/15.
-//  Copyright © 2015 Udacity. All rights reserved.
+//  Copyright © 2015 Robert McElvenny. All rights reserved.
 //
 
+``` 
+
+Initial code comments, you can add any licenses here, or additional details about your code here. 
+
+
+``` swift
 import UIKit
 
 // MARK: - ViewController: UIViewController
@@ -214,8 +230,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var longitudeTextField: UITextField!
     @IBOutlet weak var latLonSearchButton: UIButton!
     
+``` 
+
+The ``` swift // Mark:``` and ```// Mark: - ``` syntax in Swift have the same behavior identical to the `#pragma mark` and `#pragma mark -` syntax in Objective-C. This allows you to get extra information to show up in the quick jump bar. This works the exact same for ` // TODO:` and ` // FIXME: ` (Extra information that shows up inside of the quick jump bar.)
+
+``` swift 
     // MARK: Life Cycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         phraseTextField.delegate = self
@@ -234,8 +254,9 @@ class ViewController: UIViewController {
     
     
 ```
-
-test 
+In this snippet of code, we set the delegates on our 3 text fields { 
+...
+} I'll fill more details about this later. The subscribeToNotification calls are known as observers, this allows your application to "listen" to events, which is ultimately necessary in shifting your view upwards when the textField is selected. In `viewWillDisappear` we unsubscribe our observers from the notifications. 
 
 ``` swift
     
@@ -265,7 +286,15 @@ test
     }
     
 ```
-test
+We create a function to search by the phrase that is currently inside of our textField, we use AnyObject meaning that AnyObject type can be used as the sender; We set `userDidTapView(self)` which is a gesture recognizer that we have created and detects if the user tapped anywhere on the view (This will cause the keyboard to disappear). 
+
+in our if statement, we check if the phraseTextField.text is not empty, if it is not empty set the label text to "Searching..." and create our methodParameter constant, stored with dictionary Key-Value pairs found in our Constants.swift file. 
+
+(Add Constants.swift data)
+
+We then call displayImageFromFlickrBySearch(methodParameters) and cast it as a dictionary of [String : AnyObject]
+
+If the phraseTextField.text.isEmpty is Actually empty, it will retext the label to "Phrase Empty."
 
 ``` swift
     
@@ -295,8 +324,9 @@ test
     
 ```
 
+We create a new function that is similar, but instead we're using two different text fields. using the Constants.swift file as well, but we also use our BoundingBox : bboxString() <- which is a function that we have created as well. 
+
 ``` swift
-    
     private func bboxString() -> String {        
         // ensure bbox is bounded by minimum and maximums
         if let latitude = Double(latitudeTextField.text!), let longitude = Double(longitudeTextField.text!) {
@@ -310,6 +340,7 @@ test
         }
     }
 ```
+Our bboxString() -> String { ... } returns a string value and we set our text fields, and set our min values and max values. This is how we create a bounding box to search images within.The formula is min - half, max - half and search with the text found in the fields. (More clarifcation later one) 
 
 ``` swift
         
@@ -336,6 +367,11 @@ test
 
 ``` 
 
+Here we create our function which will search for the image by phrase. We go about creating our network session and request, and then run the network request with the data task using the request constant, we use a completion handler to handle each part of data, response, error. 
+
+We use a custom error display to show errors and update the UI on the main thread. 
+
+
 ``` swift
             /* GUARD: Was there an error? */
             guard (error == nil) else {
@@ -343,6 +379,12 @@ test
                 return
             }
 ```
+
+## Guard 
+
+
+
+We handle each error, 
 
 ``` swift
             
@@ -361,6 +403,8 @@ test
             }
 ```
 
+Check if there is no data, if there isn't display an error and return. 
+
 ``` swift
             // parse the data
             let parsedResult: [String:AnyObject]!
@@ -372,6 +416,10 @@ test
             }
 ```
 
+Here's where we parse the data, our parsed data will be a dictionary of String : AnyObject, we use ! to forcibly unwrap the values (Since we know that there will be data). we then serialize the data with the JSONSerialization.(jsonObjects) and pass our data to it, and cast it to a Dictionary of String key and AnyObject values. 
+
+We then use the Do { } catch { } to display an errors and show where the error occurred in our data. 
+
 ``` swift
             /* GUARD: Did Flickr return an error (stat != ok)? */
             guard let stat = parsedResult[Constants.FlickrResponseKeys.Status] as? String, stat == Constants.FlickrResponseValues.OKStatus else {
@@ -380,6 +428,8 @@ test
             }
 ```
 
+If there was an error within the parsedResult, we check the Status and cast it as a String. and we also compare it to the OKStatus, if it is not OKStatus then throw an error and print where the error is by \(parsedResult).
+
 ``` swift
             /* GUARD: Is "photos" key in our result? */
             guard let photosDictionary = parsedResult[Constants.FlickrResponseKeys.Photos] as? [String:AnyObject] else {
@@ -387,6 +437,7 @@ test
                 return
             }
 ```
+Literally the same error check, except we are checking the Photos key. 
 
 ``` swift
             /* GUARD: Is "pages" key in the photosDictionary? */
@@ -395,6 +446,8 @@ test
                 return
             }
 ```
+
+Same error except we're checking our newly created photosDictionary and the pages key, throw an error otherwise. 
 
 ``` swift
             // pick a random page!
@@ -408,6 +461,16 @@ test
     }
     
 ```
+
+Setup our code to pick a random page, the minimum amount which is from totalPages, to 40
+
+Use our Cast our arc4random value which automatically generates a value and adds 1, then case it as an Int since the arc4random_uniform returns as UInt32 value. 
+
+from here, we display any image by calling the function with methodParameters and the pageNumber.
+
+We also have our necessary task.resume() function 
+
+
 Here's where I don't understand why we are making the same exact call to the same url, just with different methodParameters, instead of lat/long we are searching a phrase.
 
 ``` swift
@@ -544,6 +607,8 @@ From here we have already learned that it's all the same stuff, there is a bette
 }
 ```
 
+In the above example, we created a helper function that allows us to easily break down our requests utilizing URLComponents, avoiding having to manually escape URLS and allowing us to appen the Items from the call into a ready to go container? (Fix later)
+
 ``` swift
 
 // MARK: - ViewController: UITextFieldDelegate
@@ -613,6 +678,17 @@ extension ViewController: UITextFieldDelegate {
 }
 
 ```
+Extensions allow us to add new functionality to an existing class, structure, enumeration, or even protocol type, including the ability to extend types for which you do not have access to the origin source code. Some background, Extensions are similar to categories in Objective-C, however they do not have names. 
+
+Extensions can: 
+
+- Add computed instance properties and computed type properties
+- Define instance methods and type methods
+- Provide new initializers
+- Define subscripts
+- Define and use new nested types
+- Make an existing type conform to a protocol
+
 
 ``` swift
 
@@ -639,6 +715,9 @@ private extension ViewController {
     }
 }
 
+```
+
+``` swift
 // MARK: - ViewController (Notifications)
 
 private extension ViewController {
