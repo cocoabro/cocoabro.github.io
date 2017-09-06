@@ -28,7 +28,7 @@ It mentions that structs are more preferred for storing simple values, that you 
 
 I'm just going to go with what they said on this one:
 
-```
+``` swift
 Struct Constants {
 
 
@@ -122,7 +122,7 @@ So I'll have the learn how we can turn that into one network request at some poi
 
 When you make an API call, theres a high chance if your values aren't properly configured that you will receive error response codes. For instance, let's say you have a dictionary value like so:
 
-``` 
+```  swift
 let methodParamters = { 
     Constants.Flickr.Method : Constants.Flickr.SearchMethod 
 }
@@ -136,7 +136,7 @@ We typically receive a response code when we make a request, handling this or "c
 
 A simple example is as so: 
 
-```
+``` swift
 if let statusCode = 200 { 
     // Do some really good things 
 } else { 
