@@ -2,7 +2,7 @@
 layout:     post
 title:      "Swift Networking V2"
 subtitle:   "URLSession, JSONParse, manipulating data"
-date:       2017-08-16 10:55:55 AM
+date:       2017-09-07 3:55:35 AM
 author:     "Rob"
 ---
 
